@@ -1,2 +1,2 @@
-# vi-sri.github.io
-Personal portfolio and my explorations on Computer Vision, Deep learning, Machine learning and Statistics
+# Mutex Monk
+My personal blog about my explorations on Computer Vision, Deep learning, Machine learning and Statistics
