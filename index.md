@@ -1,37 +1,17 @@
-## Hello
+# A Monk's journey
 
-You can use the [editor on GitHub](https://github.com/Vi-Sri/vi-sri.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+A philosophical exploration into the world of intelligent systems with a gimmicky name. This blog is about my personal experiences and observations into Computer Vision, Machine learning and Statistics. Please feel free to reach out to me for any research collaborations. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## The road to enlightment
 
-### Markdown
+### [Elements of Statistical Learning - Series](https://vi-sri.github.io/statistics)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This Series about my practical explorations from the book **Elements of Statistical Learning by Trevor Hastie, Robert Tibshirani and Jerome Friedman**. Feel free to reach out for any other suggestions on the same.
 
-```markdown
-Syntax highlighted code block
+  - [Least Squares and Nearest Neighbors - The Body and the Soul](https://vi-sri.github.io/statistics-1)
+  - [Statistical Decision Theory](https://vi-sri.github.io/statistics-2)
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+### Collaborations
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://vi-sri.github.io/statistics-1).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Vi-Sri/vi-sri.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Reach out to me on srinivasvishal7@gmail.com for research collaborations on Computer Vision and Machine learning.
