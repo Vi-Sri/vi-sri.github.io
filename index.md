@@ -9,7 +9,7 @@ A philosophical exploration into the world of intelligent systems with a gimmick
 This Series about my practical explorations from the book **Elements of Statistical Learning by Trevor Hastie, Robert Tibshirani and Jerome Friedman**. Feel free to reach out for any other suggestions on the same.
 
   - [Least Squares and Nearest Neighbors - The Body and the Soul](https://vi-sri.github.io/statistics-1)
-  - [Statistical Decision Theory](https://vi-sri.github.io/statistics-2)
+  - [Statistical Decision Theory - The Chakra](https://vi-sri.github.io/statistics-2)
 
 
 ### Collaborations
