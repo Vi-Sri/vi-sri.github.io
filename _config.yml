@@ -1,6 +1,9 @@
 theme: jekyll-theme-cayman
 title: Mutex Monk
-author: Srinivas
+author:
+  name:  Srinivas
+  url:   https://bitbucket.com/srinivasvishal7
+  email: srinivasvishal7@gmail.com
 tagline: A personal blog about my explorations on Computer Vision, Deep learning, Machine learning and Statistics
 description: A personal blog about my explorations on Computer Vision, Deep learning, Machine learning and Statistics
 github:
