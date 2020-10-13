@@ -1,6 +1,6 @@
 # A Monk's journey
 
-A philosophical exploration into the world of intelligent systems with a gimmicky name.In search of nirvana, This blog is about my personal experiences and observations into Computer Vision, Machine learning and Statistics. Please feel free to 
+A philosophical exploration into the world of intelligent systems with a gimmicky name. In search of nirvana, This blog is about my personal experiences and observations into Computer Vision, Machine learning and Statistics. Please feel free to 
 
 ### [Elements of Statistical Learning - Series](https://vi-sri.github.io/eosl/statistics)
 This Series about my practical explorations from the book **Elements of Statistical Learning by Trevor Hastie, Robert Tibshirani and Jerome Friedman**. This Series includes chapter-wise notes.
