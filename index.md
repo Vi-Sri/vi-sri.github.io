@@ -19,6 +19,3 @@ This series is a deep dive analysis into computer vision and Machine vision
 
 Please follow the contribution guidelines to contribute to this. Although its a personal blog, i would want this to be a collaborative effort. You can add your credits to the active contributors list at the end of the pages you contribute to.
 
-#### Collaborations
-
-Reach out to me on srinivasvishal7@gmail.com for research collaborations on Computer Vision and Machine learning.
