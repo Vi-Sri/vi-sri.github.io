@@ -1,6 +1,7 @@
 ---
 title: A Monk's journey
 description: A personal blog about my explorations on Computer Vision, Deep learning, Machine learning and Statistics
+layout: default
 ---
 A philosophical exploration into the world of intelligent systems with a gimmicky name. In search of nirvana, This blog is about my personal experiences and observations into Computer Vision, Machine learning and Statistics.
 
