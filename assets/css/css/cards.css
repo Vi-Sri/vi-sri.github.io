@@ -15,12 +15,6 @@
     margin: 0;
   }
   
-  body {
-    background: var(--colour-body-background);
-    font-family: Bitter;
-    padding: calc(var(--base-grid)*10);
-  }
-  
   .articles {
     margin: calc(var(--base-grid)*2) auto calc(var(--base-grid)*5);
     display: grid;
