@@ -19,7 +19,7 @@
       <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
       <link rel="stylesheet" href="/assets/css/css/cards.css">
       <style>
-          .profileimg{
+          .profileimg {
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -27,10 +27,9 @@
           }
       </style>
     </head>
-  
   <body>
     <header class="page-header" role="banner">
-      <img class="profileimg" src="/assets/images/profile.png" alt="profile" style="width:20%;">
+      <img src="/assets/images/profile.png" class="profileimg" alt="profile" style="width:6%;">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
     </header>
