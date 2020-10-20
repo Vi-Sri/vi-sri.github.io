@@ -1,6 +1,6 @@
 ---
 title: A Monk's journey
-description: In search of nirvana, This blog is about my personal explorations and observations on Computer Vision, Deep learning, Machine learning and Statistics.
+description: In search of empirical nirvana, This blog is about my personal explorations and observations on Computer Vision, Deep learning, Machine learning and Statistics.
 layout: default
 ---
 -------------------------------------------------------------------------------
