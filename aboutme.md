@@ -27,8 +27,8 @@ I am Srinivas, a Computer Vision and Machine learning Engineer at Toyota Connect
 * Deeplearning.ai Chennai Chapter [\[course\]](https://camp.lcsr.jhu.edu/spring2019/)
 
 #### Resume
-<object data="https://www.visualcv.com/pdfs/4169508/" type="application/pdf" width="700px" height="700px">
-    <embed src="https://www.visualcv.com/pdfs/4169508/">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://www.visualcv.com/pdfs/4169508/">Download PDF</a>.</p>
+<object data="/assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="/assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://www.dropbox.com/s/uqe6dpi32md8uuv/Vishal_Srinivas_VisualCV_Resume.pdf">Download PDF</a>.</p>
     </embed>
 </object>
