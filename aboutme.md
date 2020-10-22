@@ -3,7 +3,7 @@ layout: page
 title: About Me
 ---
 
-<p class="full-width no-margin"><img src="/assets/images/photo.jpg" alt="LQ" style="border-radius: 100px;width:10rem;margin-left: 80px;height:10rem;" align="right"/></p>
+<p class="full-width no-margin"><img src="/assets/images/photo.jpg" alt="LQ" style="border-radius: 100px;width:10rem;margin-left: 60px;height:10rem;" align="right"/></p>
 
 <blockquote class="full-width"><p>Computer Vision programmer, Researcher and Enthusiast</p></blockquote>
 <br>
