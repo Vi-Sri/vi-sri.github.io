@@ -28,6 +28,6 @@ I am Srinivas, a Computer Vision and Machine learning Engineer at Toyota Connect
 
 #### Resume
 <object data="/assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="/assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf"></embed>
+    <embed src="/assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf"/>
         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://pdfhost.io/v/9x4jtO51L_Srinivas_V_Computer_Vision_AI_Engineer.pdf">Download PDF</a>.</p>
 </object>
