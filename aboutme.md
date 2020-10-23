@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+description: Computer Vision programmer, Researcher and Enthusiast
 ---
 
 <p class="full-width no-margin"><img src="/assets/images/photo.jpg" alt="LQ" style="border-radius: 100px;width:10rem;margin-left: 60px;height:10rem;" align="right"/></p>
@@ -29,5 +30,5 @@ I am Srinivas, a Computer Vision and Machine learning Engineer at Toyota Connect
 #### Resume
 <object data="/assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf" type="application/pdf" width="700px" height="700px">
     <embed src="/assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf"/>
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://pdfhost.io/v/9x4jtO51L_Srinivas_V_Computer_Vision_AI_Engineer.pdf">Download PDF</a>.</p>
+    <p>This browser does not support PDFs. Please download the PDF to view it: <a href="/assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf">Download PDF</a>.</p>
 </object>
