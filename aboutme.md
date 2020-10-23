@@ -18,7 +18,7 @@ I am Srinivas, a Computer Vision and Machine learning Engineer at Toyota Connect
 * Zoho, Chennai, 2016
 
 #### Full Time
-* Zoho, Chennai, 2016
+* Zoho, Chennai, 2017
 * Econ Systems, Chennai, 2017
 * Mad Street Den, Chennai, 2019
 * HCL Research, Chennai 2019
