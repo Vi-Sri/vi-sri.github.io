@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About Me
+title: V Srinivas
 description: Computer Vision programmer, Researcher and Enthusiast
 profileImage: /assets/images/photo.jpg
 isIndex : False
