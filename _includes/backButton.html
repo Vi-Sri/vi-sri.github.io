@@ -1,0 +1,8 @@
+<a onclick="geturlandredirect()" class="btn">Back</a>
+<script>
+    function geturlandredirect(){
+        let currentUrl = window.location.href
+        currentUrl = currentUrl.split("/").splice(0,-1).join("/")
+        window.location.href = currentUrl
+    }
+</script>

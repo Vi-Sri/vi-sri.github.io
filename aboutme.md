@@ -3,6 +3,7 @@ layout: page
 title: About Me
 description: Computer Vision programmer, Researcher and Enthusiast
 ---
+{% include backButton.html %}
 
 <p class="full-width no-margin"><img src="/assets/images/photo.jpg" alt="LQ" style="border-radius: 100px;width:10rem;margin-left: 60px;height:10rem;" align="right"/></p>
 
