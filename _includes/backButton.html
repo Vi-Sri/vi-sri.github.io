@@ -2,7 +2,8 @@
 <script>
     function geturlandredirect(){
         let currentUrl = window.location.href
-        currentUrl = currentUrl.split("/").splice(0,-1).join("/")
-        window.location.href = currentUrl
+        let newUrl = currentUrl.split("/").splice(0,-1).join("/")
+        console.log(newUrl)
+        window.location.href = newUrl
     }
 </script>
