@@ -1,15 +1,10 @@
 ---
-layout: page
+layout: default
 title: About Me
 description: Computer Vision programmer, Researcher and Enthusiast
+profileImage: /assets/images/profile.png
+isIndex : False
 ---
-{% include backButton.html %}
-
-<p class="full-width no-margin"><img src="/assets/images/photo.jpg" alt="LQ" style="border-radius: 100px;width:10rem;margin-left: 60px;height:10rem;" align="right"/></p>
-
-<blockquote class="full-width"><p>Computer Vision programmer, Researcher and Enthusiast</p></blockquote>
-<br>
-
 I am Srinivas, a Computer Vision and Machine learning Engineer at Toyota Connected Labs. My research focuses are **Machine Vison**, **Computer Vision based on Deep learning**, **ADAS**, **VSLAM**, **Stereo Vision** and **Perceptual Robotics** with emphasis on both scientific and engineering aspects. Prior to my tenure with Toyota, I received B.E. at the Department of Electronics Engineering at Anna University (2017) and extensively worked as a Software Engineer with Zoho Corporation, also as an embedded computer vision engineer with Econ Systems and Cloud ML architect with HCL Research.
 
 ### Professional Experience
