@@ -1,6 +1,6 @@
 function geturlandredirect(){
     let urlarray = window.location.href.split("/")
     urlarray = urlarray.splice(urlarray.length-1,1)
-    window.location.href = urlarray.join("/")
+    console.log(urlarray.join("/"))
     return false
 }
