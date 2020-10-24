@@ -7,3 +7,7 @@ author:
 description: A personal blog about my explorations on Computer Vision, Deep learning, Machine learning and Statistics
 github:
   is_project_page: False
+collections:
+  tags:
+    output: true
+    permalink: tags/:path/
