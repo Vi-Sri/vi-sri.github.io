@@ -6,17 +6,19 @@
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if page.isIndex == true %}
-        <a href="_posts/aboutme" class="btn">{{page.buttonText}}</a>
+        <a href="/aboutme" class="btn">{{page.buttonText}}</a>
       {% else %}
         <a href="javascript:void(0)" onclick="return geturlandredirect()" class="btn">{{page.buttonText}}</a>
       {% endif %}
       <br>
+      {% if page.isPost == false %}
       <span>
         {% for tag in page.tags %}
           {% capture tag_name %}{{ tag }}{% endcapture %}
           <a href="/tag/{{ tag_name }}" class="btn"><code class="highligher-rouge"><nobr>#{{ tag_name }}</nobr></code>&nbsp;&nbsp;</a>
         {% endfor %}
       </span>
+      {% endif %}
     </header>
     <main id="content" class="main-content" role="main">
       {% if page.isIndex == true %}
