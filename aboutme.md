@@ -3,6 +3,7 @@ layout: default
 title: V Srinivas
 description: Computer Vision programmer, Researcher and Enthusiast
 profileImage: /assets/images/photo.jpg
+buttonText: Back to Home
 isIndex : False
 ---
 I am Srinivas, a Computer Vision and Machine learning Engineer at Toyota Connected Labs. My research focuses are **Machine Vison**, **Computer Vision based on Deep learning**, **ADAS**, **VSLAM**, **Stereo Vision** and **Perceptual Robotics** with emphasis on both scientific and engineering aspects. Prior to my tenure with Toyota, I have extensively worked as a an Embedded Computer Vision Engineer with Econ Systems and Cloud ML architect with HCL Research, although I started as a Software Engineer with Zoho Corporation. I received my Bachelors in Engineering in Electronics and Communication Engineering from Anna University (2017).
@@ -10,7 +11,7 @@ I am Srinivas, a Computer Vision and Machine learning Engineer at Toyota Connect
 ### Professional Experience
 
 #### Internships
-* NMDC, Chennai, 2014
+* NSIC, Chennai, 2014
 * Vajro, Chennai , 2015
 * Zoho, Chennai, 2016
 
