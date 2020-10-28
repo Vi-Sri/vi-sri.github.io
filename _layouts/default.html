@@ -14,7 +14,7 @@
         <a href="javascript:history.back(1)" class="btn">Back</a>
       {% endif %}
       <br>
-      {% if page.isIndex != true %}
+      {% if page.isPost == true %}
       <b>Tags : &nbsp;</b>
       <span>
         {% for tag in page.tags %}
