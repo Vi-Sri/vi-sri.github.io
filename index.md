@@ -5,6 +5,7 @@ profileImage: /assets/images/profile.png
 layout: default
 buttonText: About me
 isIndex: True
+isPost: False
 ---
 -------------------------------------------------------------------------------
 #### Contribution Guidelines

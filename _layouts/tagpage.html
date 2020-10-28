@@ -2,13 +2,15 @@
 layout: default
 ---
 <div class="post">
-    <h1>Tag: {{ page.tag }}</h1>
-    <ul>
-        {% for post in site.tags[page.tag] %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
-            {{ post.description }}
-        </li>
-        {% endfor %}
-    </ul>
+<h1>Tag: {{ page.tags }}</h1>
+<ul>
+{% for post in site.posts %}
+  {% if post.tags contains page.tags %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
+      {{ post.description }}
+    </li>
+  {% endif %}
+{% endfor %}
+</ul>
 </div>
 <hr>
