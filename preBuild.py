@@ -73,11 +73,6 @@ for filename in filenames:
 tagDict = CountFrequency(total_tags)
 categoryDict = CountFrequency(total_categories)
 
-# print(tagDict)
-# print(categoryDict)
-print(tagStream)
-print(indexStream)
-
 for tagName in tagDict.keys():
     index, flag = isNamePresent(tagStream, tagName, "name")
     if flag:
@@ -103,8 +98,7 @@ for categoryName in categoryDict.keys():
             }
         )
         
-print(tagStream)
-print(indexStream)
+print("Index files updated..")
 
 with open(indexData, 'w') as indexFile:
     _ = yaml.dump(indexStream, indexFile)
