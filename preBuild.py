@@ -12,12 +12,10 @@ def CountFrequency(my_list):
     return freq
 
 def isNamePresent(stream, name, key):
-    isPresent = False
-    index = -1
     for i,val in enumerate(stream):
         if val[key] == name:
             return i, True
-    return index, isPresent
+    return -1, False
         
 
 post_dir = '_posts/'
