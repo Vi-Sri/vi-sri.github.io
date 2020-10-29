@@ -1,7 +1,6 @@
 import glob
 import os
 import yaml
-from yaml import load, dump
 
 def CountFrequency(my_list): 
     freq = {} 
