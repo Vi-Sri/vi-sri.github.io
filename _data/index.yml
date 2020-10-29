@@ -1,8 +1,12 @@
-- name: Blogs out of the blue
-  articles: 0
-- name: Blog series and Notes on books and courses
-  articles: 0
-- name: Blogs and reviews on Research
-  articles: 0
-- name: Blogs on Concepts and Tutorials
-  articles: 0
+- count: 0
+  name: Blogs out of the blue
+  type: bob
+- count: 0
+  name: Blog series and Notes on books and courses
+  type: bon
+- count: 1
+  name: Blogs and reviews on Research
+  type: bor
+- count: 0
+  name: Blogs on Concepts and Tutorials
+  type: boc

@@ -16,9 +16,17 @@
     <title>{{ site.title }}</title>
     <link rel="icon" href="/assets/images/profile.png" type="image/png">
     <script type="text/javascript" src="/assets/js/index.js"></script>
+    {% if page.isPost == true %}
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    {% endif %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% if page.isIndex == true %}
     <link rel="stylesheet" href="/assets/css/css/cards.css">
+    {% endif %}
+    {% if page.isCategory == true %}
+    <link rel="stylesheet" href="/assets/css/css/blog.css">
+    {% endif %}
+
     <style>
         .profileimg {
         display: block;
