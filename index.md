@@ -5,11 +5,6 @@ profileImage: /assets/images/profile.png
 layout: default
 buttonText: About me
 isIndex: True
-categoryList: 
-    - bob
-    - bor
-    - bon
-    - boc
 ---
 -------------------------------------------------------------------------------
 #### Contribution Guidelines

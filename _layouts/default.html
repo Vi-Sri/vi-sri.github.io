@@ -8,19 +8,21 @@
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if page.isIndex == true %}
-        <a href="/2020/10/25/aboutme" class="btn">About me</a>
-      {% else %}
+        <a href="/2020/10/25/aboutme" class="btn">About me</a>  
+      {% endif %}
+      {% if page.isIndex != true %}
         <a href="/" class="btn">Home</a>
         <a href="javascript:history.back(1)" class="btn">Back</a>
-        <a href="/alltags" class="btn">All tags</a>
       {% endif %}
-      <br>
+      <a href="/alltags" class="btn">All tags</a>
       {% if page.isPost == true %}
+      <br>
+      <br>
       <b>Tags : &nbsp;</b>
       <span>
         {% for tag in page.tags %}
           {% capture tag_name %}{{ tag }}{% endcapture %}
-          <a href="/tag/{{ tag_name }}" class="btn"><code class="highligher-rouge"><nobr>#&nbsp;{{ tag_name }}</nobr></code>&nbsp;</a>
+          <a href="/tag/{{ tag_name }}" style="color: white;"><code class="highligher-rouge"><nobr>#{{ tag_name }}&nbsp;</nobr></code>&nbsp;</a>
         {% endfor %}
       </span>
       {% endif %}
@@ -30,7 +32,7 @@
       <ol class="articles">
         {% for item in site.data.index %}
           <li class="articles__article" style="--animation-order:{{forloop.index}}">
-            <a class="articles__link" href="/category/{{page.categoryList[forloop.index0]}}">
+            <a class="articles__link" href="/category/{{item.type}}">
               <div class="articles__content articles__content--lhs">
                 <h2 class="articles__title">{{item.name}}</h2>
                 <div class="articles__footer">
