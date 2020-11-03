@@ -1,8 +1,8 @@
 {% include head.html %}
   <body>
     <header class="page-header" role="banner">
-      {% if page.profileImage %}
-        <img src="{{page.profileImage}}" class="profileimg" alt="profile" style="width:120px;">
+      {% if page.headerImage %}
+        <img src="{{page.headerImage}}" class="profileimg" alt="profile" style="width:120px;">
       {% endif %}
       <br>
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
@@ -28,30 +28,6 @@
       {% endif %}
     </header>
     <main id="content" class="main-content" role="main">
-      {% if page.isIndex == true %}
-      <ol class="articles">
-        {% for item in site.data.index %}
-          <li class="articles__article" style="--animation-order:{{forloop.index}}">
-            <a class="articles__link" href="/category/{{item.type}}">
-              <div class="articles__content articles__content--lhs">
-                <h2 class="articles__title">{{item.name}}</h2>
-                <div class="articles__footer">
-                  <p>No. of articles</p>
-                  <time>{{item.count}}</time>
-                </div>
-              </div>
-              <div class="articles__content articles__content--rhs" aria-hidden="true">
-                <h2 class="articles__title">{{item.name}}</h2>
-                <div class="articles__footer">
-                  <p>No. of articles</p>
-                  <time>{{item.count}}</time>
-                </div>
-              </div>
-            </a>
-          </li>
-        {% endfor %}
-      </ol>
-      {% endif %}
       {{ content }}
       {% include footer.html %}
     </main>
