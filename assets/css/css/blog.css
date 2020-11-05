@@ -1,16 +1,27 @@
 body {
-  background: #fff;
+  background: #F9F9F9;
   box-sizing: border-box;
 }
 
 .blog-container {
   background: #fff;
   border-radius: 5px;
-  box-shadow: rgba(1, 1, 1, 0.5) 3px 3px 3px 3px;
+  box-shadow: 8px 8px 10px rgba(0.2, 0.2, 0.2, 0.5), 8px 8px 10px rgba(255, 255, 255, 0.8);
   font-family: "adelle-sans", sans-serif;
   font-weight: 100;
   margin: 48px auto;
   width: 20rem;
+  --translate: 1px;
+  transition: transform 0.6s ease;
+  -webkit-transform: translate(var(--translate), var(--translate));
+          transform: translate(var(--translate), var(--translate));
+}
+.blog-container:hover {
+  --translate: calc(-3px);
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 @media screen and (min-width: 480px) {
   .blog-container {

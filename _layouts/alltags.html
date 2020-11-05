@@ -1,8 +1,18 @@
-{% include head.html %}
-<body>
-  <main id="content" class="main-content" role="main">
-    <h1 class="page-title">{{ page.title }}</h1>
-    {{ content }}
-    {% include footer.html %}
-  </main>
-</body>
+---
+layout: default
+---
+  <div class="container">
+    {% for item in site.data.tags %}
+    <a href="/tag/{{item.name}}">
+      <div class="card" style="--cards:{{item.count}}">
+        <div class="child">
+          <h2>{{item.name}}</h2>
+          <p>{{item.count}} article(s)</p>
+        </div>
+        {% for i in (1..item.count) %}
+        <div class="child"></div>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
