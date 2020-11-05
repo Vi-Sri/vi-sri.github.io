@@ -2,10 +2,15 @@
 layout: default
 ---
 <div class="post">
-  <div class="post-list">
+  <div id="post-list">
+    <div class="form__group field">
+      <input class="form__field search" name="search"/>
+      <label for="search" class="form__label">Search in title, summary or tags</label>
+    </div>
+    <!-- <button class="sort" data-sort="published-date">Sort by date</button> -->
   {% for post in site.posts %}
     {% if post.category contains page.category %}
-      <div class="blog-container">
+      <div class="blog-container list">
           <div class="blog-header">
             <div class="blog-author--no-cover">
             </div>
@@ -24,12 +29,18 @@ layout: default
                 {% endfor %}
               </ul>
             </div>
-          </div>
-          <div class="blog-footer">
+            <div class="blog-footer">
               <p class="published-date">{{ post.date | date_to_string }}</p>
+            </div>
           </div>
       </div>
     {% endif %}
   {% endfor %}
   </div>
 </div>
+<script>
+   var options = {
+            valueNames: ['blog-title', 'blog-summary', 'blog-tags']
+        };
+        var postList = new List('post-list', options);
+</script>

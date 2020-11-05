@@ -102,9 +102,8 @@ body {
 
 .blog-footer {
   border-top: 1px solid #e6e6e6;
-  margin: 0 auto;
   padding-bottom: 0.125rem;
-  width: 80%;
+  width: 100%;
 }
 
 .blog-footer ul {
