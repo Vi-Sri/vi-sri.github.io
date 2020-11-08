@@ -29,6 +29,9 @@
     </header>
     <main id="content" class="main-content" role="main">
       {{ content }}
+      {% if page.isPost == true %}
+        {% include relatedposts.html %}
+      {% endif %}
       {% include footer.html %}
     </main>
   </body>

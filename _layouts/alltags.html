@@ -1,18 +1,30 @@
 ---
 layout: default
 ---
-  <div class="container">
-    {% for item in site.data.tags %}
-    <a href="/tag/{{item.name}}">
-      <div class="card" style="--cards:{{item.count}}">
-        <div class="child">
-          <h2>{{item.name}}</h2>
-          <p>{{item.count}} article(s)</p>
-        </div>
-        {% for i in (1..item.count) %}
-        <div class="child"></div>
-        {% endfor %}
-      </div>
-    </a>
-    {% endfor %}
+<div id="tag-list">
+  <div class="form__group field">
+    <input class="form__field search" name="search"/>
+    <label for="search" class="form__label">Search by tags or number of articles</label>
   </div>
+    <div class="container list">
+        {% for item in site.data.tags %}
+        <a href="/tag/{{item.name}}">
+          <div class="card" style="--cards:{{item.count}}">
+            <div class="child content">
+              <h3>{{item.name}}</h3>
+              <p>{{item.count}} article(s)</p>
+            </div>
+            {% for i in (1..item.count) %}
+            <div class="child"></div>
+            {% endfor %}
+          </div>
+        </a>
+        {% endfor %}
+  </div>
+</div>
+<script>
+  var options = {
+           valueNames: ['content']
+       };
+       var postList = new List('tag-list', options);
+</script>

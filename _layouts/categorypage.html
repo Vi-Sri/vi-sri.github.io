@@ -7,7 +7,6 @@ layout: default
       <input class="form__field search" name="search"/>
       <label for="search" class="form__label">Search in title, summary or tags</label>
     </div>
-    <!-- <button class="sort" data-sort="published-date">Sort by date</button> -->
   {% for post in site.posts %}
     {% if post.category contains page.category %}
       <div class="blog-container list">
