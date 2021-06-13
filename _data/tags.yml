@@ -1,8 +1,16 @@
-- count: 1
+- count: 2
   name: cv
 - count: 1
   name: attention
 - count: 1
-  name: nlp
-- count: 1
   name: transformers
+- count: 1
+  name: classic
+- count: 1
+  name: algorithm
+- count: 1
+  name: concept
+- count: 1
+  name: fft
+- count: 1
+  name: fourier-transform

@@ -116,7 +116,7 @@ if not os.path.exists(tag_dir):
 
 for tag in total_tags:
     tag_filename = tag_dir + tag + '.md'
-    f = open(tag_filename, 'a')
+    f = open(tag_filename, 'w')
     write_str = '---\nlayout: tagpage\ntitle: \"Tags: ' + tag + '\"\ntags: ' + tag + '\nrobots: noindex\ndescription: All the posts that are related to ' + tag +'\n---\n'
     f.write(write_str)
     f.close()
