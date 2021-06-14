@@ -16,3 +16,5 @@
   name: fourier-transform
 - count: 2
   name: series
+- count: 2
+  name: vit-series

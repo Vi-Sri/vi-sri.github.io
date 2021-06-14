@@ -2,7 +2,7 @@
 layout: default
 title: The New World Order - Transformers for Images [ Vision transformers - 1 ] 
 description: The blog dissects the research paper by Dosovitskiy et. al on vision transformers
-tags: cv transformers attention series
+tags: cv transformers attention series vit-series
 category: bor
 isPost : True
 ---
