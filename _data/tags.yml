@@ -1,8 +1,8 @@
-- count: 2
+- count: 3
   name: cv
-- count: 1
+- count: 2
   name: attention
-- count: 1
+- count: 2
   name: transformers
 - count: 1
   name: classic
@@ -14,3 +14,5 @@
   name: fft
 - count: 1
   name: fourier-transform
+- count: 2
+  name: series
