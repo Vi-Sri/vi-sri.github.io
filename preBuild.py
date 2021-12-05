@@ -25,20 +25,11 @@ tagData = '_data/tags.yml'
 
 filenames = glob.glob(post_dir + '*md')
 
-with open(indexData) as indexFile:
+with open(indexData, 'r') as indexFile:
     indexStream = yaml.load(indexFile, Loader=yaml.FullLoader)
-    
-with open(tagData) as tagFile:
-    tagStream = yaml.load(tagFile, Loader=yaml.FullLoader)
-
 indexFile.close()
-tagFile.close()
 
-if tagStream is None:
-    tagStream = []
-
-if indexStream is None:
-    indexStream = []
+tagStream = []
 
 total_tags = []
 total_categories = []
@@ -66,6 +57,7 @@ for filename in filenames:
                 crawl = False
                 break
     f.close()
+
 
 tagDict = CountFrequency(total_tags)
 categoryDict = CountFrequency(total_categories)
@@ -97,10 +89,10 @@ for categoryName in categoryDict.keys():
         
 print("Index files updated..")
 
-with open(indexData, 'w') as indexFile:
+with open(indexData, "w") as indexFile:
     _ = yaml.dump(indexStream, indexFile)
 
-with open(tagData, 'w') as tagFile:
+with open(tagData, "w") as tagFile:
     _ = yaml.dump(tagStream, tagFile)
 
 tagFile.close()
@@ -117,7 +109,7 @@ if not os.path.exists(tag_dir):
 for tag in total_tags:
     tag_filename = tag_dir + tag + '.md'
     f = open(tag_filename, 'w')
-    write_str = '---\nlayout: tagpage\ntitle: \"Tags: ' + tag + '\"\ntags: ' + tag + '\nrobots: noindex\ndescription: All the posts that are related to ' + tag +'\n---\n'
+    write_str = '---\nlayout: tagpage\ntitle: \"Tags: ' + tag + '\"\ntags: ' + tag + '\ndescription: All the posts that are related to ' + tag +'\n---\n'
     f.write(write_str)
     f.close()
 print("Tags generated, count", total_tags.__len__())
