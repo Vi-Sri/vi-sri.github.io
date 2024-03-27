@@ -1,5 +1,5 @@
 ---
-title: A Monk's journey
+title: A journey into the latent world
 description: In search of empirical nirvana, This blog is about my personal explorations and observations on the sciences of perception and cognition modeled into computers.
 headerImage: /assets/images/profile.png
 layout: indexpage
