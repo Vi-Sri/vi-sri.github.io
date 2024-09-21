@@ -1,8 +1,8 @@
 - count: 1
   name: cv
-- count: 1
+- count: 2
   name: classic
-- count: 1
+- count: 2
   name: algorithm
 - count: 1
   name: concept
@@ -10,3 +10,7 @@
   name: fft
 - count: 1
   name: fourier-transform
+- count: 1
+  name: job-prep
+- count: 1
+  name: patterns
