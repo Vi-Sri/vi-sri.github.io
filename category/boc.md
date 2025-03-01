@@ -1,7 +1,7 @@
 ---
 layout: categorypage
-title: "Blogs on Concepts and Tutorials"
+title: "The Learning Manifold"
 category: boc
-description: All the blog posts that are related to basic concepts I study and derived experimental intuitions with tutorials
+description: Blogs exploring different concepts and exploring their interconnectivity. 
 isCategory: True
 ---

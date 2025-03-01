@@ -1,7 +1,7 @@
 ---
 layout: categorypage
-title: "Blogs out of the blue"
+title: "Entropy of Ideas"
 category: bob
-description: Blogs on random thoughts, from mathematical explorations to philosophical underpinnings of technology
+description: Blogs on my structured and chaotic thoughts. Math, science, history, philosophy and sometimes politics.
 isCategory: True
 ---
