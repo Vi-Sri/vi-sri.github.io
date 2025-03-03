@@ -1,16 +1,18 @@
-- count: 1
-  name: cv
-- count: 1
-  name: classic
-- count: 1
-  name: algorithm
-- count: 1
+- count: 2
   name: concept
 - count: 1
-  name: fft
+  name: information-geometry
 - count: 1
-  name: fourier-transform
+  name: math
+- count: 1
+  name: classic
 - count: 1
   name: philosophy
 - count: 1
   name: politics
+- count: 1
+  name: algorithm
+- count: 1
+  name: fft
+- count: 1
+  name: fourier-transform

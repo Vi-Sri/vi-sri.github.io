@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Are we moving towards Techno-Feudalism ? 
-description: A primer into understanding common coding patterns, interesting observations and problems to solve, personal rants and journey for job prep
+description: Essay on the science of evolution of human civilization and what is it tending towards.
 tags: philosophy politics
 category: bob
 isPost : True
