@@ -1,8 +1,8 @@
 - count: 1
   name: cv
-- count: 2
+- count: 1
   name: classic
-- count: 2
+- count: 1
   name: algorithm
 - count: 1
   name: concept
@@ -11,6 +11,6 @@
 - count: 1
   name: fourier-transform
 - count: 1
-  name: job-prep
+  name: philosophy
 - count: 1
-  name: patterns
+  name: politics

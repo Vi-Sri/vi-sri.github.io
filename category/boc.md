@@ -1,7 +1,7 @@
 ---
 layout: categorypage
-title: "The Learning Manifold"
+title: "Learning the Manifold"
 category: boc
-description: Blogs exploring different concepts and exploring their interconnectivity. 
+description: ML Theory
 isCategory: True
 ---
