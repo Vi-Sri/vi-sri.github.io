@@ -2,10 +2,14 @@
   name: concept
 - count: 1
   name: information-geometry
-- count: 1
+- count: 2
   name: math
 - count: 1
   name: classic
+- count: 1
+  name: algorithms
+- count: 1
+  name: compsci
 - count: 1
   name: philosophy
 - count: 1
