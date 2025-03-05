@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Maze solving algorithsm. How do they work ? 
+title: Maze solving algorithms. How do they work ? 
 description: Essay on the science of evolution of human civilization and what is it tending towards.
 tags: algorithms compsci math 
 category: bob
