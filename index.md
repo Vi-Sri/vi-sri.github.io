@@ -1,6 +1,6 @@
 ---
-title: A journey into the latent world
-description: In search of empirical nirvana, This blog is about my personal explorations and observations on the sciences of perception and cognition modeled into computers.
+title: Exploring existence inside out.
+description: In search of empirical nirvana, This blog is about my personal explorations in understanding this strange illusion we live in, through science, math and philosophy.
 headerImage: /assets/images/profile.png
 layout: indexpage
 buttonText: About me
