@@ -2,13 +2,13 @@
   name: concept
 - count: 1
   name: information-geometry
-- count: 2
+- count: 3
   name: math
 - count: 1
   name: classic
-- count: 1
+- count: 2
   name: algorithms
-- count: 1
+- count: 2
   name: compsci
 - count: 1
   name: philosophy
@@ -20,3 +20,7 @@
   name: fft
 - count: 1
   name: fourier-transform
+- count: 1
+  name: emergence
+- count: 1
+  name: nature-inspired
