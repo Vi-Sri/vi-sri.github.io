@@ -1,37 +1,36 @@
-{% include head.html %}
-  <body>
-    <header class="page-header" role="banner">
-      {% if page.headerImage %}
-        <img src="{{page.headerImage}}" class="profileimg" alt="profile" style="width:120px;">
-      {% endif %}
-      <br>
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      {% if page.isIndex == true %}
-        <a href="/2024/03/27/aboutme" class="btn">About me</a>  
-      {% endif %}
-      {% if page.isIndex != true %}
-        <a href="/" class="btn">Home</a>
-        <a href="javascript:history.back(1)" class="btn">Back</a>
-      {% endif %}
-      <a href="/alltags" class="btn">All tags</a>
-      {% if page.isPost == true %}
-      <br>
-      <br>
-      <b>Tags : &nbsp;</b>
-      <span>
-        {% for tag in page.tags %}
-          {% capture tag_name %}{{ tag }}{% endcapture %}
-          <a href="/tag/{{ tag_name }}" style="color: rgb(255, 255, 255);"><code class="highlighter-rouge"><nobr>#{{ tag_name }}&nbsp;|&nbsp;</nobr></code>&nbsp;</a>
-        {% endfor %}
-      </span>
-      {% endif %}
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  {% include head.html %}
+  <body class="layout-{{ page.layout | default: 'default' }}">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <div class="site-shell header-inner">
+        <a class="site-identity" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
+          <span class="identity-mark" aria-hidden="true">SV</span>
+          <span>
+            <strong>{{ site.title }}</strong>
+            <small>{{ site.tagline }}</small>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <a href="{{ '/writing/' | relative_url }}"{% if page.url == '/writing/' %} aria-current="page"{% endif %}>Writing</a>
+          <a href="{{ '/research/' | relative_url }}"{% if page.url == '/research/' %} aria-current="page"{% endif %}>Research</a>
+          <a href="{{ '/explore/' | relative_url }}"{% if page.url == '/explore/' %} aria-current="page"{% endif %}>Explore</a>
+          <a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+          <button class="search-trigger" type="button" data-search-open aria-label="Open search">Search <kbd>/</kbd></button>
+        </nav>
+      </div>
     </header>
-    <main id="content" class="main-content" role="main">
+
+    <main id="content" class="site-main">
       {{ content }}
-      {% if page.isPost == true %}
-        {% include relatedposts.html %}
-      {% endif %}
-      {% include footer.html %}
     </main>
+
+    {% include footer.html %}
+    {% include search-dialog.html %}
+    {% if site.google_analytics and site.google_analytics != "" %}
+      {% include analytics-consent.html %}
+    {% endif %}
   </body>
+</html>

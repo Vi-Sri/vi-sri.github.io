@@ -1,0 +1,7 @@
+<figure class="interactive-figure p5-figure">
+  <div id="{{ include.id }}" class="p5-canvas" role="img" aria-label="{{ include.alt | default: include.caption }}">
+    <p class="interactive-fallback">Loading interactive sketch…</p>
+  </div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
+<script src="{{ include.script | relative_url }}" defer></script>

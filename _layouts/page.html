@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<header class="page-intro site-shell reading-shell">
+  {% if page.kicker %}<p class="eyebrow">{{ page.kicker }}</p>{% endif %}
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}<p class="page-deck">{{ page.description }}</p>{% endif %}
+</header>
+<article class="prose site-shell reading-shell">
+  {{ content }}
+</article>
+

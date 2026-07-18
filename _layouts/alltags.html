@@ -1,30 +1,25 @@
 ---
 layout: default
 ---
-<div id="tag-list">
-  <div class="form__group field">
-    <input class="form__field search" name="search"/>
-    <label for="search" class="form__label">Search by tags or number of articles</label>
+<header class="page-intro site-shell reading-shell">
+  <p class="eyebrow">Concept index</p>
+  <h1>{{ page.title }}</h1>
+  <p class="page-deck">{{ page.description }}</p>
+</header>
+<section class="site-shell reading-shell prose">
+  <div class="topic-list">
+    {% assign joined_tags = site.posts | map: 'tags' | join: ',' %}
+    {% assign sorted_tags = joined_tags | split: ',' | uniq | sort %}
+    {% for tag in sorted_tags %}
+      {% assign tag_count = 0 %}
+      {% for post in site.posts %}
+        {% if post.tags contains tag %}{% assign tag_count = tag_count | plus: 1 %}{% endif %}
+      {% endfor %}
+      <article>
+        <span>{{ tag_count }}</span>
+        <div><h3><a href="{{ '/explore/' | relative_url }}?q={{ tag | url_encode }}">{{ tag | replace: '-', ' ' }}</a></h3><p>{{ tag_count }} connected piece{% if tag_count != 1 %}s{% endif %}</p></div>
+      </article>
+    {% endfor %}
   </div>
-    <div class="container list">
-        {% for item in site.data.tags %}
-        <a href="/tag/{{item.name}}">
-          <div class="card" style="--cards:{{item.count}}">
-            <div class="child content">
-              <h4>{{item.name}}</h4>
-              <p>{{item.count}} article(s)</p>
-            </div>
-            {% for i in (1..item.count) %}
-            <div class="child"></div>
-            {% endfor %}
-          </div>
-        </a>
-        {% endfor %}
-  </div>
-</div>
-<script>
-  var options = {
-           valueNames: ['content']
-       };
-       var postList = new List('tag-list', options);
-</script>
+  <p><a href="{{ '/explore/' | relative_url }}">Open the interactive concept graph →</a></p>
+</section>

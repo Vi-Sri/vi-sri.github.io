@@ -1,13 +1,82 @@
-theme: jekyll-theme-cayman
-title: Mutex Monk
+title: "Srinivas Venkatanarayanan"
+tagline: "Computation, emergence, and the architectures of life"
+description: "Research essays and field notes connecting computation, evolution, morphogenesis, artificial intelligence, complex adaptive systems, and mathematical physics."
+url: "https://vi-sri.github.io"
+baseurl: ""
+repository: "Vi-Sri/vi-sri.github.io"
+lang: en-US
+timezone: America/New_York
+
+# Add the values from Google only after the corresponding properties exist.
+# These identifiers are public configuration, not secrets.
+google_site_verification: ""
+google_analytics: ""
+
 author:
-  name:  Srinivas
-  url:   https://github.com/Vi-Sri
-  email: srinivasvishal7@gmail.com
-description: A personal blog about exploring the sciences of perception and cognition modeled into computers.
+  name: "Srinivas Venkatanarayanan"
+  url: "https://vi-sri.github.io/about/"
+  email: "srinivasvishal7@gmail.com"
+
+logo: /assets/images/profile.png
+social:
+  name: "Srinivas Venkatanarayanan"
+  links:
+    - "https://github.com/Vi-Sri"
+    - "https://www.linkedin.com/in/vishal-srinivas-9234703a/"
+    - "https://twitter.com/PsNotNP"
+
 github:
-  is_project_page: False
-collections:
-  tags:
-    output: true
-    permalink: tag/:path/
+  is_project_page: false
+  repository_url: "https://github.com/Vi-Sri/vi-sri.github.io"
+
+permalink: /writing/:title/
+future: false
+show_excerpts: true
+markdown: kramdown
+strict_front_matter: true
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+feed:
+  path: feed.xml
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: "Srinivas Venkatanarayanan"
+      content_type: essay
+      status: seed
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og.png
+  - scope:
+      path: "tag"
+    values:
+      noindex: true
+      sitemap: false
+  - scope:
+      path: "category"
+    values:
+      noindex: true
+      sitemap: false
+
+exclude:
+  - docs
+  - Gemfile
+  - Gemfile.lock
+  - Dockerfile
+  - compose.yaml
+  - README.md
+  - assets/pdf/Vishal_Srinivas_VisualCV_Resume.pdf
+  - vendor

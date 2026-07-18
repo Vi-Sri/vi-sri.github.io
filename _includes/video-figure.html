@@ -1,0 +1,9 @@
+<figure class="media-figure">
+  <video controls preload="metadata" playsinline{% if include.poster %} poster="{{ include.poster | relative_url }}"{% endif %}>
+    {% if include.webm %}<source src="{{ include.webm | relative_url }}" type="video/webm">{% endif %}
+    {% if include.mp4 %}<source src="{{ include.mp4 | relative_url }}" type="video/mp4">{% endif %}
+    {% if include.captions %}<track default kind="captions" srclang="en" label="English" src="{{ include.captions | relative_url }}">{% endif %}
+    Your browser cannot play this animation. {% if include.mp4 %}<a href="{{ include.mp4 | relative_url }}">Download it instead.</a>{% endif %}
+  </video>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

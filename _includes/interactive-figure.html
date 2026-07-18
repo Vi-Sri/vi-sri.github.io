@@ -1,0 +1,10 @@
+<figure class="interactive-figure">
+  <iframe
+    src="{{ include.src | relative_url }}"
+    title="{{ include.title }}"
+    loading="lazy"
+    sandbox="allow-scripts allow-same-origin"
+    style="--interactive-height: {{ include.height | default: '620px' }}">
+  </iframe>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>
