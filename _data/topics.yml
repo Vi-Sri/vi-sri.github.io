@@ -1,0 +1,25 @@
+- name: "Life as computation"
+  slug: life-as-computation
+  question: "When is a physical process genuinely computing?"
+  bridge: "Turing · Shannon · von Neumann · cellular automata"
+- name: "Form from fields"
+  slug: morphogenesis
+  question: "How do local signals coordinate reliable global anatomy?"
+  bridge: "Turing patterns · bioelectricity · Michael Levin"
+- name: "Search without a designer"
+  slug: evolutionary-computation
+  question: "What can evolution discover that optimization misses?"
+  bridge: "natural selection · open-endedness · evolutionary algorithms"
+- name: "Emergence across scales"
+  slug: complex-adaptive-systems
+  question: "Which macroscopic laws survive changes in microscopic detail?"
+  bridge: "statistical physics · networks · collective behavior"
+- name: "Models that model themselves"
+  slug: minds-and-agents
+  question: "How do agents infer other agents—and their own boundaries?"
+  bridge: "theory of mind · active inference · artificial intelligence"
+- name: "Existence and explanation"
+  slug: nature-of-existence
+  question: "What kinds of explanation can mathematics actually support?"
+  bridge: "Penrose · information · causality · philosophy of science"
+

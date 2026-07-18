@@ -1,0 +1,39 @@
+name: Research seed
+description: Propose an observation, connection, or experiment worth developing.
+title: "Seed: "
+labels: [research-seed]
+body:
+  - type: textarea
+    id: anomaly
+    attributes:
+      label: Observation or anomaly
+      description: What is surprising, unresolved, or commonly explained too loosely?
+    validations:
+      required: true
+  - type: textarea
+    id: mechanism
+    attributes:
+      label: Candidate mechanism
+      description: State the causal or computational mechanism without relying on analogy alone.
+    validations:
+      required: true
+  - type: textarea
+    id: bridge
+    attributes:
+      label: Conceptual bridge
+      description: Which second field might illuminate the problem, and where might the bridge break?
+    validations:
+      required: true
+  - type: textarea
+    id: test
+    attributes:
+      label: Discriminating test
+      description: What observation or experiment could make the idea fail?
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Starting sources
+      description: Prefer primary papers, books, datasets, and official documentation.
+

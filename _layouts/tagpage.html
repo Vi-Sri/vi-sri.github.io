@@ -1,15 +1,24 @@
 ---
 layout: default
 ---
-<div class="post">
-<ul>
-{% for post in site.posts %}
-  {% if post.tags contains page.tags %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;&nbsp;({{ post.date | date_to_string }})<br>
-      {{ post.description }}
-    </li>
-  {% endif %}
-{% endfor %}
-</ul>
-</div>
-<hr>
+<header class="page-intro site-shell reading-shell">
+  <p class="eyebrow">Concept</p>
+  <h1>{{ page.tags | replace: '-', ' ' }}</h1>
+  <p class="page-deck">Writing connected by this concept.</p>
+</header>
+<section class="site-shell reading-shell prose">
+  <div class="archive-list">
+    {% for post in site.posts %}
+      {% if post.tags contains page.tags %}
+        <article class="archive-item">
+          <div class="archive-date">{{ post.date | date: '%Y' }}</div>
+          <div>
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <p>{{ post.description }}</p>
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <p><a href="{{ '/explore/' | relative_url }}?q={{ page.tags | url_encode }}">Explore nearby concepts →</a></p>
+</section>

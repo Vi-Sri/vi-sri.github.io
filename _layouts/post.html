@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<article class="post-shell">
+  <header class="post-header site-shell reading-shell">
+    <a class="back-link" href="{{ '/writing/' | relative_url }}">← All writing</a>
+    <div class="post-taxonomy">
+      <span class="status status-{{ page.status | default: 'essay' }}">{{ page.status | default: page.content_type | default: 'essay' }}</span>
+      {% if page.series %}<span>{{ page.series }}</span>{% endif %}
+    </div>
+    <h1>{{ page.title }}</h1>
+    <p class="post-deck">{{ page.description }}</p>
+    <div class="post-byline">
+      <span>By <a href="{{ '/about/' | relative_url }}">{{ site.author.name }}</a></span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
+      {% assign words = content | number_of_words %}
+      <span>{{ words | divided_by: 220 | plus: 1 }} min read</span>
+      {% if page.updated %}<span>Updated {{ page.updated | date: '%b %-d, %Y' }}</span>{% endif %}
+    </div>
+    {% if page.status == 'seed' %}
+      <aside class="seed-note"><strong>Research seed.</strong> This is a living note, not a finished essay. It is excluded from search engines until it has evidence, references, and a complete argument.</aside>
+    {% endif %}
+  </header>
+
+  <div class="post-layout site-shell">
+    <aside class="post-rail" aria-label="Article metadata">
+      {% if page.tags %}
+        <p class="rail-label">Concepts</p>
+        <ul class="tag-list">
+          {% for tag in page.tags %}
+            <li><a href="{{ '/explore/' | relative_url }}?q={{ tag | url_encode }}">{{ tag | replace: '-', ' ' }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if page.people %}
+        <p class="rail-label">People</p>
+        <ul class="plain-list">
+          {% for person in page.people %}<li>{{ person }}</li>{% endfor %}
+        </ul>
+      {% endif %}
+    </aside>
+
+    <div class="prose post-content">
+      {{ content }}
+    </div>
+  </div>
+
+  <footer class="post-footer site-shell reading-shell">
+    {% include relatedposts.html %}
+    <div class="post-cta">
+      <p class="eyebrow">Continue the conversation</p>
+      <h2>Found a flaw, a connection, or an experiment worth trying?</h2>
+      <p><a href="https://github.com/Vi-Sri/vi-sri.github.io/issues/new">Open a research note on GitHub</a> or <a href="mailto:{{ site.author.email }}">write to me</a>.</p>
+    </div>
+  </footer>
+</article>
+

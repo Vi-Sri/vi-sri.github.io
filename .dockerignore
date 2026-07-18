@@ -1,0 +1,5 @@
+.git
+.bundle
+_site
+vendor
+.DS_Store
