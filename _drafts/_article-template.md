@@ -5,7 +5,8 @@ tags: [canonical-concept, second-concept, third-concept]
 people: [Person One]
 series: "Optional series name"
 content_type: essay
-status: seed
+status: todo
+next_step: "State the next concrete research or production step."
 math: false
 p5: false
 sitemap: false

@@ -1,0 +1,30 @@
+name: Suggest a topic
+description: Propose a question, connection, observation, scientist, or paper for the notebook.
+title: "Suggestion: "
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for contributing to the research queue. A suggestion may be combined with related ideas or held until the evidence is strong enough."
+  - type: textarea
+    id: idea
+    attributes:
+      label: Idea or question
+      description: What would you like the notebook to investigate?
+      placeholder: "For example: Is biological morphogenesis better understood as control, computation, or both?"
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Why is it interesting?
+      description: What is surprising, unclear, or commonly explained too loosely?
+  - type: textarea
+    id: connections
+    attributes:
+      label: Possible connections
+      description: Which fields, people, or existing notes might connect to it?
+  - type: textarea
+    id: sources
+    attributes:
+      label: Useful starting sources
+      description: Primary papers, books, datasets, or experiments are especially welcome.

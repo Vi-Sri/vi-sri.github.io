@@ -5,7 +5,8 @@ tags: [complex-adaptive-systems, social-systems, evolution, institutions]
 people: []
 category: bob
 content_type: essay
-status: seed
+status: todo
+next_step: "Define competing mechanisms and collect evidence that could distinguish them."
 sitemap: false
 ---
 
@@ -20,5 +21,4 @@ sitemap: false
 - Can historical transitions be compared without smuggling the conclusion into the metaphor?
 - What measurable predictions distinguish techno-feudalism from monopoly capitalism or platform rent extraction?
 
-This research seed is intentionally not a finished political claim. It will be published only after the mechanisms, evidence, and strongest counterarguments are in place.
-
+This queued outline is intentionally not a finished political claim. It will be published only after the mechanisms, evidence, and strongest counterarguments are in place.

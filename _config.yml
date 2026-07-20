@@ -10,7 +10,7 @@ timezone: America/New_York
 # Add the values from Google only after the corresponding properties exist.
 # These identifiers are public configuration, not secrets.
 google_site_verification: ""
-google_analytics: ""
+google_analytics: "G-6VQSSQG4PY"
 
 author:
   name: "Srinivas Venkatanarayanan"
@@ -55,7 +55,7 @@ defaults:
       layout: post
       author: "Srinivas Venkatanarayanan"
       content_type: essay
-      status: seed
+      status: todo
   - scope:
       path: ""
     values:

@@ -1,25 +1,20 @@
-- name: "Life as computation"
-  slug: life-as-computation
-  question: "When is a physical process genuinely computing?"
-  bridge: "Turing · Shannon · von Neumann · cellular automata"
-- name: "Form from fields"
-  slug: morphogenesis
-  question: "How do local signals coordinate reliable global anatomy?"
-  bridge: "Turing patterns · bioelectricity · Michael Levin"
-- name: "Search without a designer"
-  slug: evolutionary-computation
-  question: "What can evolution discover that optimization misses?"
-  bridge: "natural selection · open-endedness · evolutionary algorithms"
-- name: "Emergence across scales"
-  slug: complex-adaptive-systems
-  question: "Which macroscopic laws survive changes in microscopic detail?"
-  bridge: "statistical physics · networks · collective behavior"
-- name: "Models that model themselves"
-  slug: minds-and-agents
-  question: "How do agents infer other agents—and their own boundaries?"
-  bridge: "theory of mind · active inference · artificial intelligence"
-- name: "Existence and explanation"
-  slug: nature-of-existence
-  question: "What kinds of explanation can mathematics actually support?"
-  bridge: "Penrose · information · causality · philosophy of science"
-
+- name: "Information and representation"
+  slug: information-and-representation
+  question: "When does a change of coordinates reveal structure rather than merely rename it?"
+  bridge: "Fourier analysis · information geometry · learning"
+  posts: [fourier-transforms-and-images, information-theory]
+- name: "Embodied problem solving"
+  slug: embodied-problem-solving
+  question: "What does a physical system compute through its dynamics?"
+  bridge: "graph search · slime molds · nature-inspired computing"
+  posts: [maze-solving]
+- name: "Growth and biological form"
+  slug: growth-and-biological-form
+  question: "How do local growth rules produce reliable global geometry?"
+  bridge: "phyllotaxis · morphogenesis · mechanical constraints"
+  posts: [pinecone]
+- name: "Institutions as adaptive systems"
+  slug: institutions-as-adaptive-systems
+  question: "Which feedback loops make social metaphors into testable mechanisms?"
+  bridge: "institutions · selection · complex adaptive systems"
+  posts: [civilization-patterns]

@@ -17,8 +17,8 @@ layout: default
       <span>{{ words | divided_by: 220 | plus: 1 }} min read</span>
       {% if page.updated %}<span>Updated {{ page.updated | date: '%b %-d, %Y' }}</span>{% endif %}
     </div>
-    {% if page.status == 'seed' %}
-      <aside class="seed-note"><strong>Research seed.</strong> This is a living note, not a finished essay. It is excluded from search engines until it has evidence, references, and a complete argument.</aside>
+    {% if page.status == 'todo' or page.status == 'in-progress' or page.status == 'seed' %}
+      <aside class="seed-note"><strong>{{ page.status | replace: '-', ' ' | capitalize }}.</strong> This is a working outline, not a finished essay. It is excluded from search engines until it has evidence, references, and a complete argument. Follow its position on the <a href="{{ '/writing/' | relative_url }}">public writing board</a>.</aside>
     {% endif %}
   </header>
 
@@ -50,8 +50,7 @@ layout: default
     <div class="post-cta">
       <p class="eyebrow">Continue the conversation</p>
       <h2>Found a flaw, a connection, or an experiment worth trying?</h2>
-      <p><a href="https://github.com/Vi-Sri/vi-sri.github.io/issues/new">Open a research note on GitHub</a> or <a href="mailto:{{ site.author.email }}">write to me</a>.</p>
+      <p><a href="https://github.com/Vi-Sri/vi-sri.github.io/issues/new?template=topic-suggestion.yml" data-track="suggestion" data-suggestion-channel="github">Suggest a topic on GitHub</a> or <a href="mailto:{{ site.author.email }}?subject=Research%20notebook%20suggestion" data-track="suggestion" data-suggestion-channel="email">write to me</a>.</p>
     </div>
   </footer>
 </article>
-

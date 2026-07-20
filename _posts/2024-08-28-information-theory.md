@@ -5,7 +5,8 @@ tags: [information-geometry, information-theory, learning, mathematical-physics]
 people: [Claude Shannon, C. R. Rao]
 category: boc
 content_type: explainer
-status: seed
+status: in-progress
+next_step: "Write the Fisher metric derivation and test the invariance examples."
 math: true
 sitemap: false
 related: [fourier-transforms-and-images]
@@ -22,4 +23,4 @@ Machine-learning models do not merely occupy parameter space. They induce famili
 - What is the precise relationship between statistical and learned representation manifolds?
 - Can information geometry explain any empirical behavior that ordinary optimization language cannot?
 
-This research seed will grow into a worked essay with derivations, counterexamples, and reproducible visualizations.
+This working outline is growing into a worked essay with derivations, counterexamples, and reproducible visualizations.
