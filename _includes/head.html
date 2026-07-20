@@ -11,7 +11,7 @@
     <meta name="google-site-verification" content="{{ site.google_site_verification }}">
   {% endif %}
 
-  {% if page.noindex or page.status == "seed" %}
+  {% if page.noindex or page.status == "seed" or page.status == "todo" or page.status == "in-progress" %}
     <meta name="robots" content="noindex, follow">
   {% endif %}
 

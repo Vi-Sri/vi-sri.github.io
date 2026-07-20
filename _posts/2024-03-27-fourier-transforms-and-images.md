@@ -5,7 +5,8 @@ tags: [algorithms, fourier-transform, representation, mathematical-physics]
 people: [Joseph Fourier]
 category: boc
 content_type: explainer
-status: seed
+status: todo
+next_step: "Design the image-domain experiments and assemble primary references."
 math: true
 sitemap: false
 related: [information-theory]
@@ -22,5 +23,4 @@ A no-nonsense introduction to Fourier series and transforms, followed by a more 
 - What exactly do convolutional models inherit from the Fourier view of translation?
 - Where does the analogy between Fourier bases and learned latent spaces break?
 
-This research seed will become a visual essay with executable image experiments, derivations, and primary references.
-
+This queued outline will become a visual essay with executable image experiments, derivations, and primary references.

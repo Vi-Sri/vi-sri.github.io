@@ -33,13 +33,13 @@ permalink: /
   <div class="section-heading">
     <div>
       <p class="eyebrow">Research program</p>
-      <h2>Six paths through the same territory</h2>
+      <h2>Four paths grounded in current work</h2>
     </div>
-    <p>The categories are designed as bridges. Each one asks what survives when an idea moves from cells to algorithms, or from physics to societies.</p>
+    <p>Each path links directly to notes already in the notebook. New paths appear only when there is real writing behind them.</p>
   </div>
   <div class="topic-grid">
     {% for topic in site.data.topics %}
-      <a class="topic-card" href="{{ '/explore/' | relative_url }}?q={{ topic.slug }}">
+      <a class="topic-card" href="{{ '/explore/' | relative_url }}#{{ topic.slug }}">
         <span class="topic-number">0{{ forloop.index }}</span>
         <h3>{{ topic.name }}</h3>
         <p>{{ topic.question }}</p>
@@ -53,13 +53,14 @@ permalink: /
   <div class="site-shell">
     <div class="section-heading">
       <div>
-        <p class="eyebrow">From the notebook</p>
-        <h2>Recent explorations</h2>
+        <p class="eyebrow">Open notebook</p>
+        <h2>Work currently moving</h2>
       </div>
       <a class="text-link" href="{{ '/writing/' | relative_url }}">Browse all writing →</a>
     </div>
     <div class="writing-grid">
-      {% for post in site.posts limit: 6 %}
+      {% assign active_posts = site.posts | where: 'status', 'in-progress' %}
+      {% for post in active_posts limit: 3 %}
         <article class="writing-card">
           <div class="writing-meta">
             <span>{{ post.content_type | default: 'essay' }}</span>

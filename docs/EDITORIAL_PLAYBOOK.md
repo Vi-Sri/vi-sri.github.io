@@ -33,7 +33,7 @@ A biography of Turing, Shannon, von Neumann, Conway, Levin, or Penrose is not en
 
 ## Publication gate
 
-An article changes from `status: seed` to `status: published` only when:
+An article moves from `status: todo` to `status: in-progress` when research or production begins. It changes to `status: published` only when:
 
 - [ ] the opening states a specific question, tension, or claim;
 - [ ] important factual claims cite primary or authoritative sources;
@@ -124,4 +124,3 @@ Analytics must be privacy-conscious and should not be added until a provider is 
 - [ ] ORCID and consistent author name on paper, code, and site;
 - [ ] NVIDIA disclosure/approval completed when applicable;
 - [ ] venue selected for contribution fit; current policies and calls verified on the official venue site.
-

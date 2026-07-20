@@ -92,7 +92,8 @@
     const input = document.querySelector("[data-archive-search]");
     const list = document.querySelector("[data-archive-list]");
     if (!input || !list) return;
-    const items = Array.from(list.querySelectorAll(".archive-item"));
+    const items = Array.from(list.querySelectorAll("[data-roadmap-card], .archive-item"));
+    const columns = Array.from(list.querySelectorAll("[data-status-column]"));
     const empty = document.querySelector("[data-archive-empty]");
     let status = "all";
 
@@ -105,7 +106,16 @@
         item.hidden = !(statusMatch && queryMatch);
         if (!item.hidden) visible += 1;
       });
-      if (empty) empty.hidden = visible !== 0;
+      columns.forEach((column) => {
+        const cards = Array.from(column.querySelectorAll("[data-roadmap-card]"));
+        const visibleCards = cards.filter((card) => !card.hidden).length;
+        const count = column.querySelector("[data-column-count]");
+        const columnEmpty = column.querySelector(".kanban-empty");
+        column.hidden = status !== "all" && column.dataset.statusColumn !== status;
+        if (count) count.textContent = String(visibleCards);
+        if (columnEmpty) columnEmpty.hidden = visibleCards !== 0;
+      });
+      if (empty) empty.hidden = visible !== 0 || !query;
     };
 
     input.addEventListener("input", apply);
@@ -149,104 +159,181 @@
     const context = canvas.getContext("2d");
     const countLabel = document.querySelector("[data-graph-count]");
     const reset = document.querySelector("[data-graph-reset]");
-    const palette = { background: "#122c23", line: "rgba(233,225,209,.18)", concept: "#d47a59", post: "#dfe7e1", label: "#f5f0e5", muted: "#93a99a" };
-    const nodeMap = new Map();
+    const detail = document.querySelector("[data-graph-detail]");
+    const search = document.querySelector("[data-explore-search]");
+    const palette = {
+      background: "#122c23",
+      line: "rgba(233,225,209,.28)",
+      active: "#d47a59",
+      todo: "#91a69a",
+      published: "#f1d59b",
+      label: "#f5f0e5",
+      muted: "#7e9388"
+    };
     const links = [];
     let selected = null;
     let hovered = null;
+    let searchMatches = new Set();
+    let searchQueryActive = false;
     let width = 0;
     let height = 0;
 
-    const hash = (text) => Array.from(text).reduce((value, character) => ((value << 5) - value + character.charCodeAt(0)) | 0, 0);
-    const ensureNode = (id, label, type, url) => {
-      if (!nodeMap.has(id)) {
-        const angle = Math.abs(hash(id)) % 628 / 100;
-        const radial = type === "concept" ? 0.28 : 0.42;
-        nodeMap.set(id, { id, label, type, url, angle, radial, x: 0, y: 0, radius: type === "concept" ? 8 : 4 });
-      }
-      return nodeMap.get(id);
-    };
-
-    data.posts.forEach((post) => {
-      const postNode = ensureNode(`post:${post.id}`, post.title, "post", post.url);
-      [...(post.tags || []), ...(post.people || [])].forEach((term) => {
-        const id = `concept:${normalize(term).replace(/\s+/g, "-")}`;
-        const conceptNode = ensureNode(id, term, "concept", null);
-        links.push({ source: conceptNode, target: postNode });
+    const nodes = data.posts.map((post, index) => ({ ...post, index, x: 0, y: 0, radius: 9 }));
+    const normalizedTerms = (node) => (node.tags || []).map((term) => normalize(term));
+    nodes.forEach((sourceNode, index) => {
+      nodes.slice(index + 1).forEach((targetNode) => {
+        const targetTerms = new Set(normalizedTerms(targetNode));
+        const shared = (sourceNode.tags || []).filter((term) => targetTerms.has(normalize(term)));
+        if (shared.length) links.push({ source: sourceNode, target: targetNode, shared });
       });
     });
-    const nodes = Array.from(nodeMap.values());
 
     const positionNodes = () => {
       const centerX = width / 2;
       const centerY = height / 2;
-      const scale = Math.min(width, height);
-      nodes.forEach((node) => {
-        node.x = centerX + Math.cos(node.angle) * scale * node.radial;
-        node.y = centerY + Math.sin(node.angle) * scale * node.radial;
+      const radiusX = Math.max(95, width * 0.34);
+      const radiusY = Math.max(100, height * 0.34);
+      nodes.forEach((node, index) => {
+        const angle = -Math.PI / 2 + (Math.PI * 2 * index) / Math.max(nodes.length, 1);
+        node.x = centerX + Math.cos(angle) * radiusX;
+        node.y = centerY + Math.sin(angle) * radiusY;
       });
-      for (let iteration = 0; iteration < 90; iteration += 1) {
-        links.forEach((link) => {
-          const dx = link.target.x - link.source.x;
-          const dy = link.target.y - link.source.y;
-          link.source.x += dx * 0.014;
-          link.source.y += dy * 0.014;
-          link.target.x -= dx * 0.014;
-          link.target.y -= dy * 0.014;
-        });
-        for (let index = 0; index < nodes.length; index += 1) {
-          for (let next = index + 1; next < nodes.length; next += 1) {
-            const first = nodes[index];
-            const second = nodes[next];
-            const dx = second.x - first.x;
-            const dy = second.y - first.y;
-            const distanceSquared = Math.max(dx * dx + dy * dy, 70);
-            const force = 14 / distanceSquared;
-            first.x -= dx * force;
-            first.y -= dy * force;
-            second.x += dx * force;
-            second.y += dy * force;
-          }
-        }
-        nodes.forEach((node) => {
-          node.x += (centerX - node.x) * 0.002;
-          node.y += (centerY - node.y) * 0.002;
-          node.x = Math.max(28, Math.min(width - 28, node.x));
-          node.y = Math.max(28, Math.min(height - 28, node.y));
-        });
-      }
     };
 
-    const isNeighbor = (node) => !selected || node === selected || links.some((link) => (link.source === selected && link.target === node) || (link.target === selected && link.source === node));
+    const directLinks = (node) => links.filter((link) => link.source === node || link.target === node);
+    const isNeighbor = (node) => !selected || node === selected || directLinks(selected).some((link) => link.source === node || link.target === node);
+    const nodeColor = (node) => node.status === "published" ? palette.published : node.status === "in-progress" ? palette.active : palette.todo;
+
+    const updateDetail = () => {
+      if (!detail) return;
+      detail.replaceChildren();
+      const eyebrow = document.createElement("p");
+      eyebrow.className = "eyebrow";
+      if (!selected) {
+        eyebrow.textContent = "How to read this";
+        const title = document.createElement("h2");
+        title.textContent = "Select a note";
+        const copy = document.createElement("p");
+        copy.textContent = "The selected note becomes the visual focus. Its direct connections remain bright, and each connecting line names the shared concept.";
+        detail.append(eyebrow, title, copy);
+        return;
+      }
+
+      eyebrow.textContent = `${selected.contentType} · ${selected.status.replace(/-/g, " ")}`;
+      const title = document.createElement("h2");
+      title.textContent = selected.title;
+      const description = document.createElement("p");
+      description.textContent = selected.description;
+      const concepts = document.createElement("div");
+      concepts.className = "graph-concepts";
+      (selected.tags || []).forEach((term) => {
+        const tag = document.createElement("span");
+        tag.textContent = term.replace(/-/g, " ");
+        concepts.append(tag);
+      });
+      const connections = directLinks(selected);
+      const connectionTitle = document.createElement("h3");
+      connectionTitle.textContent = "Direct connections";
+      const connectionList = document.createElement("ul");
+      connectionList.className = "graph-connections";
+      if (!connections.length) {
+        const item = document.createElement("li");
+        item.textContent = "No shared concepts with another note yet.";
+        connectionList.append(item);
+      } else {
+        connections.forEach((connection) => {
+          const other = connection.source === selected ? connection.target : connection.source;
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = other.url;
+          link.textContent = other.title;
+          const via = document.createElement("small");
+          via.textContent = `via ${connection.shared.map((term) => term.replace(/-/g, " ")).join(", ")}`;
+          item.append(link, via);
+          connectionList.append(item);
+        });
+      }
+      const open = document.createElement("a");
+      open.className = "button button-primary graph-open-note";
+      open.href = selected.url;
+      open.textContent = "Open this working note";
+      open.addEventListener("click", () => {
+        if (window.trackSiteEvent) window.trackSiteEvent("select_content", { content_type: "graph_post", item_id: selected.id, item_name: selected.title });
+      });
+      detail.append(eyebrow, title, description, concepts, connectionTitle, connectionList, open);
+    };
+
+    const drawLabel = (node, active) => {
+      const words = node.title.split(/\s+/);
+      const lines = [];
+      let line = "";
+      words.forEach((word) => {
+        const candidate = line ? `${line} ${word}` : word;
+        if (candidate.length > 25 && line && lines.length < 2) {
+          lines.push(line);
+          line = word;
+        } else {
+          line = candidate;
+        }
+      });
+      if (line && lines.length < 2) lines.push(line);
+      if (lines.length === 2 && words.join(" ").length > lines.join(" ").length) lines[1] = `${lines[1].slice(0, 22)}…`;
+      context.fillStyle = active ? palette.label : palette.muted;
+      context.font = `${node === selected ? "600 " : ""}11px ui-sans-serif, system-ui, sans-serif`;
+      context.textAlign = "center";
+      lines.forEach((text, index) => context.fillText(text, node.x, node.y + 28 + index * 14));
+    };
+
     const draw = () => {
       context.clearRect(0, 0, width, height);
       context.fillStyle = palette.background;
       context.fillRect(0, 0, width, height);
       links.forEach((link) => {
         const active = !selected || link.source === selected || link.target === selected;
-        context.strokeStyle = active ? palette.line : "rgba(233,225,209,.04)";
-        context.lineWidth = active && selected ? 1.4 : 0.7;
+        const searchActive = !searchQueryActive || searchMatches.has(link.source.id) || searchMatches.has(link.target.id);
+        context.globalAlpha = active && searchActive ? 1 : 0.12;
+        context.strokeStyle = active && selected ? palette.active : palette.line;
+        context.lineWidth = active && selected ? 2.5 : 1;
         context.beginPath();
         context.moveTo(link.source.x, link.source.y);
         context.lineTo(link.target.x, link.target.y);
         context.stroke();
-      });
-      nodes.forEach((node) => {
-        const active = isNeighbor(node);
-        context.globalAlpha = active ? 1 : 0.18;
-        context.fillStyle = node.type === "concept" ? palette.concept : palette.post;
-        context.beginPath();
-        context.arc(node.x, node.y, node === selected || node === hovered ? node.radius + 3 : node.radius, 0, Math.PI * 2);
-        context.fill();
-        if (node.type === "concept" || node === selected || node === hovered) {
-          context.fillStyle = active ? palette.label : palette.muted;
-          context.font = `${node.type === "concept" ? 11 : 10}px ui-monospace, monospace`;
+        if (selected && active) {
+          const label = link.shared.map((term) => term.replace(/-/g, " ")).join(" · ");
+          const x = (link.source.x + link.target.x) / 2;
+          const y = (link.source.y + link.target.y) / 2;
+          context.font = "10px ui-monospace, monospace";
+          const labelWidth = context.measureText(label).width + 12;
+          context.fillStyle = palette.background;
+          context.fillRect(x - labelWidth / 2, y - 10, labelWidth, 18);
+          context.fillStyle = palette.label;
           context.textAlign = "center";
-          context.fillText(node.label.length > 34 ? `${node.label.slice(0, 32)}…` : node.label, node.x, node.y - node.radius - 7);
+          context.fillText(label, x, y + 3);
         }
       });
+      nodes.forEach((node) => {
+        const active = isNeighbor(node) && (!searchQueryActive || searchMatches.has(node.id));
+        context.globalAlpha = active ? 1 : 0.18;
+        context.fillStyle = nodeColor(node);
+        const radius = node === selected ? 15 : node === hovered || (selected && isNeighbor(node)) ? 11 : node.radius;
+        context.beginPath();
+        context.arc(node.x, node.y, radius, 0, Math.PI * 2);
+        context.fill();
+        if (node === selected) {
+          context.strokeStyle = palette.label;
+          context.lineWidth = 2;
+          context.beginPath();
+          context.arc(node.x, node.y, 21, 0, Math.PI * 2);
+          context.stroke();
+        }
+        drawLabel(node, active);
+      });
       context.globalAlpha = 1;
-      if (countLabel) countLabel.textContent = selected ? `Neighborhood of ${selected.label}` : `${nodes.length} nodes · ${links.length} conceptual links`;
+      if (countLabel) {
+        if (selected) countLabel.textContent = `${selected.title} · ${directLinks(selected).length} direct connection${directLinks(selected).length === 1 ? "" : "s"}`;
+        else if (searchQueryActive) countLabel.textContent = searchMatches.size ? `${searchMatches.size} matching note${searchMatches.size === 1 ? "" : "s"}` : "No notes match this search";
+        else countLabel.textContent = `${nodes.length} actual notes · ${links.length} shared-concept links`;
+      }
     };
 
     const resize = () => {
@@ -265,30 +352,55 @@
       const rect = canvas.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
-      return nodes.find((node) => Math.hypot(node.x - x, node.y - y) < node.radius + 8) || null;
+      return nodes.find((node) => Math.hypot(node.x - x, node.y - y) < 24) || null;
     };
 
     canvas.addEventListener("pointermove", (event) => {
       hovered = nodeAt(event);
-      canvas.style.cursor = hovered ? "pointer" : "crosshair";
+      canvas.style.cursor = hovered ? "pointer" : "default";
       draw();
     });
     canvas.addEventListener("pointerleave", () => { hovered = null; draw(); });
     canvas.addEventListener("click", (event) => {
       const node = nodeAt(event);
-      if (!node) { selected = null; draw(); return; }
-      if (node.type === "post" && selected === node && node.url) {
-        if (window.trackSiteEvent) window.trackSiteEvent("select_content", { content_type: "graph_post", item_id: node.id, item_name: node.label });
-        window.location.href = node.url;
-        return;
-      }
+      if (!node) { selected = null; updateDetail(); draw(); return; }
       selected = selected === node ? null : node;
-      if (selected && window.trackSiteEvent) window.trackSiteEvent("graph_node_selected", { node_type: node.type, item_id: node.id, item_name: node.label });
+      if (selected && window.trackSiteEvent) window.trackSiteEvent("graph_node_selected", { node_type: "post", item_id: node.id, item_name: node.title });
+      updateDetail();
       draw();
     });
-    if (reset) reset.addEventListener("click", () => { selected = null; hovered = null; draw(); });
+    if (search) {
+      const applyGraphSearch = () => {
+        const query = normalize(search.value.trim());
+        searchQueryActive = Boolean(query);
+        searchMatches = new Set(query ? nodes.filter((node) => normalize([node.title, node.description, ...(node.tags || []), ...(node.people || [])].join(" ")).includes(query)).map((node) => node.id) : []);
+        selected = searchMatches.size === 1 ? nodes.find((node) => searchMatches.has(node.id)) : null;
+        updateDetail();
+        draw();
+      };
+      search.addEventListener("input", applyGraphSearch);
+      applyGraphSearch();
+    }
+    if (reset) reset.addEventListener("click", () => {
+      selected = null;
+      hovered = null;
+      searchMatches = new Set();
+      searchQueryActive = false;
+      if (search) search.value = "";
+      document.querySelectorAll("[data-explore-item]").forEach((item) => { item.hidden = false; });
+      updateDetail();
+      draw();
+    });
     window.addEventListener("resize", resize, { passive: true });
     resize();
+  }
+
+  function setupTrackedLinks() {
+    document.querySelectorAll('[data-track="suggestion"]').forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.trackSiteEvent) window.trackSiteEvent("generate_lead", { lead_source: link.dataset.suggestionChannel || "unknown", content_type: "topic_suggestion" });
+      });
+    });
   }
 
   setupNavigation();
@@ -296,4 +408,5 @@
   setupArchive();
   setupExploreFilter();
   setupGraph();
+  setupTrackedLinks();
 })();

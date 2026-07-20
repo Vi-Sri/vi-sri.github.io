@@ -5,7 +5,8 @@ tags: [algorithms, search, embodied-computation, nature-inspired-computing]
 people: [Edsger Dijkstra]
 category: bob
 content_type: explainer
-status: seed
+status: in-progress
+next_step: "Build comparable algorithmic and embodied solver visualizations."
 sitemap: false
 related: [pinecone]
 ---
