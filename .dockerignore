@@ -1,5 +1,6 @@
 .git
 .bundle
 _site
+.jekyll-cache
 vendor
 .DS_Store

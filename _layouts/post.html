@@ -38,6 +38,14 @@ layout: default
           {% for person in page.people %}<li>{{ person }}</li>{% endfor %}
         </ul>
       {% endif %}
+      {% if page.wikilinks and page.wikilinks.size > 0 %}
+        <p class="rail-label">Linked notes</p>
+        <ul class="plain-list linked-note-list">
+          {% for reference in page.wikilinks %}
+            <li><a href="{{ reference.target_url | relative_url }}{% if reference.target_anchor %}#{{ reference.target_anchor }}{% endif %}">{{ reference.target_title }}</a>{% if reference.target_section %}<small>§ {{ reference.target_section }}</small>{% endif %}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
     </aside>
 
     <div class="prose post-content">
@@ -46,6 +54,21 @@ layout: default
   </div>
 
   <footer class="post-footer site-shell reading-shell">
+    {% if page.backlinks and page.backlinks.size > 0 %}
+      <section class="backlinks" aria-labelledby="backlinks-title">
+        <p class="eyebrow">Back references</p>
+        <h2 id="backlinks-title">Notes that point here</h2>
+        <p class="backlinks-intro">These links are generated from explicit <code>[[wikilinks]]</code> elsewhere in the notebook.</p>
+        <ul>
+          {% for backlink in page.backlinks %}
+            <li>
+              <a href="{{ backlink.source_url | relative_url }}{% if backlink.source_anchor %}#{{ backlink.source_anchor }}{% endif %}">{{ backlink.source_title }}</a>
+              <small>{% if backlink.source_section %}from “{{ backlink.source_section }}”{% endif %}{% if backlink.target_section %} · points to § “{{ backlink.target_section }}”{% endif %}</small>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
     {% include relatedposts.html %}
     <div class="post-cta">
       <p class="eyebrow">Continue the conversation</p>

@@ -3,6 +3,7 @@ title: "Civilization as an Adaptive System: Beyond the Techno-Feudalism Metaphor
 description: "A systems-level inquiry into institutions, technology, power, and the recurring mistake of treating historical metaphors as mechanisms."
 tags: [complex-adaptive-systems, social-systems, evolution, institutions]
 people: []
+aliases: [Civilization Patterns, Adaptive Institutions]
 category: bob
 content_type: essay
 status: todo

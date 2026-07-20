@@ -3,6 +3,7 @@ title: "Maze Solving as Search, Memory, and Embodied Computation"
 description: "From graph search to slime molds: what changes when a maze solver is an algorithm, a body, or a distributed physical process?"
 tags: [algorithms, search, embodied-computation, nature-inspired-computing]
 people: [Edsger Dijkstra]
+aliases: [Maze Solving, Embodied Maze Solving]
 category: bob
 content_type: explainer
 status: in-progress
@@ -14,6 +15,8 @@ related: [pinecone]
 # What is a maze?
 
 A maze can be formalized as a graph, but physical solvers do not receive a graph. They encounter walls, gradients, costs, and partial observations. This note uses that gap to compare classical search with embodied and nature-inspired computation.
+
+The same distinction between a pattern and the process producing it appears in [[Pinecones#Questions this note must answer|the pinecone inquiry]], where local growth performs work that a global geometric description leaves unexplained.
 
 ## Questions this note must answer
 

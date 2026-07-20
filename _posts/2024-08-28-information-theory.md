@@ -3,6 +3,7 @@ title: "Statistical Manifolds: What Kind of Space Is a Model?"
 description: "A route from probability distributions to information geometry—and from representing a world to learning within it."
 tags: [information-geometry, information-theory, learning, mathematical-physics]
 people: [Claude Shannon, C. R. Rao]
+aliases: [Statistical Manifolds, Information Theory]
 category: boc
 content_type: explainer
 status: in-progress

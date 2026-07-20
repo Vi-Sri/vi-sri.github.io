@@ -32,6 +32,8 @@ Define terms, show dynamics, and connect claims to primary evidence.
 
 Explain the transfer to a second domain.
 
+Connect the argument at the exact point where another note becomes useful. Use `[[Note title]]`, `[[Note title#Section]]`, or `[[Note title#Section|reader-facing label]]`; see `docs/WIKILINKS.md`.
+
 ## Where the bridge breaks
 
 Name the limits, counterexamples, and strongest objection.
