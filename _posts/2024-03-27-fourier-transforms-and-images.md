@@ -3,6 +3,7 @@ title: "Fourier Transforms: Sailing Through Latent Seas"
 description: "A visual primer on Fourier series and transforms, with connections to representation learning and the geometry of images."
 tags: [algorithms, fourier-transform, representation, mathematical-physics]
 people: [Joseph Fourier]
+aliases: [Fourier Transforms, Fourier]
 category: boc
 content_type: explainer
 status: todo
@@ -15,6 +16,8 @@ related: [information-theory]
 # Fourier series and transforms: a primer
 
 A no-nonsense introduction to Fourier series and transforms, followed by a more interesting question: why do frequency coordinates repeatedly become useful representations for learning systems?
+
+The deeper issue is geometric: a representation changes which differences appear locally meaningful. That question continues in [[Statistical Manifolds#Questions this note must answer|the geometry of statistical distinguishability]].
 
 ## Questions this note must answer
 

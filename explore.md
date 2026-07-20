@@ -10,12 +10,12 @@ permalink: /explore/
     <span class="sr-only">Search the connected notes</span>
     <input type="search" data-explore-search placeholder="Search notes, concepts, or people" autocomplete="off">
   </label>
-  <p>Every node is a real note. A line appears only when two notes share a named concept. Select a node for its summary and connections.</p>
+  <p>Every node is a real note. Thin lines show shared tags; gold lines show deliberate <code>&#91;&#91;wikilinks&#93;&#93;</code> written into the notes. Select a node for the exact references.</p>
 </div>
 
 <div class="graph-panel">
   <div class="graph-toolbar">
-    <div class="graph-legend" aria-label="Graph legend"><span class="legend-dot legend-active"></span> In progress <span class="legend-dot legend-todo"></span> Todo <span class="legend-line"></span> Shared concept</div>
+    <div class="graph-legend" aria-label="Graph legend"><span class="legend-dot legend-active"></span> In progress <span class="legend-dot legend-todo"></span> Todo <span class="legend-line"></span> Shared tag <span class="legend-line legend-reference"></span> Wiki reference</div>
     <p><strong data-graph-count>Loading the notes…</strong></p>
     <button type="button" class="filter-chip" data-graph-reset>Reset selection</button>
   </div>
@@ -74,7 +74,9 @@ permalink: /explore/
       "contentType": {{ post.content_type | default: 'essay' | jsonify }},
       "url": {{ post.url | relative_url | jsonify }},
       "tags": {{ post.tags | jsonify }},
-      "people": {{ post.people | default: empty | jsonify }}
+      "people": {{ post.people | jsonify }},
+      "wikilinks": {{ post.wikilinks | jsonify }},
+      "backlinks": {{ post.backlinks | jsonify }}
     }{% unless forloop.last %},{% endunless %}{% endfor %}
   ]
 }

@@ -167,10 +167,10 @@
       active: "#d47a59",
       todo: "#91a69a",
       published: "#f1d59b",
+      reference: "#f1d59b",
       label: "#f5f0e5",
       muted: "#7e9388"
     };
-    const links = [];
     let selected = null;
     let hovered = null;
     let searchMatches = new Set();
@@ -179,14 +179,28 @@
     let height = 0;
 
     const nodes = data.posts.map((post, index) => ({ ...post, index, x: 0, y: 0, radius: 9 }));
+    const nodeById = new Map(nodes.map((node) => [node.id, node]));
+    const linkMap = new Map();
+    const linkKey = (first, second) => [first.id, second.id].sort().join("::");
+    const ensureLink = (source, target) => {
+      const key = linkKey(source, target);
+      if (!linkMap.has(key)) linkMap.set(key, { source, target, shared: [], references: [] });
+      return linkMap.get(key);
+    };
     const normalizedTerms = (node) => (node.tags || []).map((term) => normalize(term));
     nodes.forEach((sourceNode, index) => {
       nodes.slice(index + 1).forEach((targetNode) => {
         const targetTerms = new Set(normalizedTerms(targetNode));
         const shared = (sourceNode.tags || []).filter((term) => targetTerms.has(normalize(term)));
-        if (shared.length) links.push({ source: sourceNode, target: targetNode, shared });
+        if (shared.length) ensureLink(sourceNode, targetNode).shared.push(...shared);
+      });
+      (sourceNode.wikilinks || []).forEach((reference) => {
+        const targetNode = nodeById.get(reference.target_id);
+        if (!targetNode || targetNode === sourceNode) return;
+        ensureLink(sourceNode, targetNode).references.push({ ...reference, source_id: sourceNode.id });
       });
     });
+    const links = Array.from(linkMap.values());
 
     const positionNodes = () => {
       const centerX = width / 2;
@@ -214,7 +228,7 @@
         const title = document.createElement("h2");
         title.textContent = "Select a note";
         const copy = document.createElement("p");
-        copy.textContent = "The selected note becomes the visual focus. Its direct connections remain bright, and each connecting line names the shared concept.";
+        copy.textContent = "The selected note becomes the visual focus. Gold lines are deliberate wikilinks; thin lines are shared tags. The references and their sections appear here.";
         detail.append(eyebrow, title, copy);
         return;
       }
@@ -233,7 +247,7 @@
       });
       const connections = directLinks(selected);
       const connectionTitle = document.createElement("h3");
-      connectionTitle.textContent = "Direct connections";
+      connectionTitle.textContent = "Connections and references";
       const connectionList = document.createElement("ul");
       connectionList.className = "graph-connections";
       if (!connections.length) {
@@ -247,9 +261,23 @@
           const link = document.createElement("a");
           link.href = other.url;
           link.textContent = other.title;
-          const via = document.createElement("small");
-          via.textContent = `via ${connection.shared.map((term) => term.replace(/-/g, " ")).join(", ")}`;
-          item.append(link, via);
+          item.append(link);
+          if (connection.shared.length) {
+            const via = document.createElement("small");
+            via.className = "graph-shared-reference";
+            via.textContent = `Shared tags: ${connection.shared.map((term) => term.replace(/-/g, " ")).join(", ")}`;
+            item.append(via);
+          }
+          connection.references.forEach((reference) => {
+            const citation = document.createElement("small");
+            citation.className = "graph-wiki-reference";
+            const outgoing = reference.source_id === selected.id;
+            const direction = outgoing ? "This note references the connected note" : "The connected note references this one";
+            const sourceSection = reference.source_section ? ` from § “${reference.source_section}”` : "";
+            const targetSection = reference.target_section ? ` to § “${reference.target_section}”` : "";
+            citation.textContent = `${direction}${sourceSection}${targetSection}.`;
+            item.append(citation);
+          });
           connectionList.append(item);
         });
       }
@@ -291,15 +319,21 @@
       links.forEach((link) => {
         const active = !selected || link.source === selected || link.target === selected;
         const searchActive = !searchQueryActive || searchMatches.has(link.source.id) || searchMatches.has(link.target.id);
+        const explicit = link.references.length > 0;
         context.globalAlpha = active && searchActive ? 1 : 0.12;
-        context.strokeStyle = active && selected ? palette.active : palette.line;
-        context.lineWidth = active && selected ? 2.5 : 1;
+        context.strokeStyle = explicit ? palette.reference : active && selected ? palette.active : palette.line;
+        context.lineWidth = explicit ? (active && selected ? 3 : 2) : active && selected ? 2 : 1;
+        context.setLineDash(explicit ? [8, 4] : []);
         context.beginPath();
         context.moveTo(link.source.x, link.source.y);
         context.lineTo(link.target.x, link.target.y);
         context.stroke();
+        context.setLineDash([]);
         if (selected && active) {
-          const label = link.shared.map((term) => term.replace(/-/g, " ")).join(" · ");
+          const labels = [];
+          if (explicit) labels.push(`${link.references.length} wiki reference${link.references.length === 1 ? "" : "s"}`);
+          if (link.shared.length) labels.push(link.shared.map((term) => term.replace(/-/g, " ")).join(" · "));
+          const label = labels.join(" + ");
           const x = (link.source.x + link.target.x) / 2;
           const y = (link.source.y + link.target.y) / 2;
           context.font = "10px ui-monospace, monospace";
@@ -330,9 +364,16 @@
       });
       context.globalAlpha = 1;
       if (countLabel) {
-        if (selected) countLabel.textContent = `${selected.title} · ${directLinks(selected).length} direct connection${directLinks(selected).length === 1 ? "" : "s"}`;
+        if (selected) {
+          const selectedLinks = directLinks(selected);
+          const referenceCount = selectedLinks.reduce((total, link) => total + link.references.length, 0);
+          countLabel.textContent = `${selected.title} · ${selectedLinks.length} connection${selectedLinks.length === 1 ? "" : "s"} · ${referenceCount} wiki reference${referenceCount === 1 ? "" : "s"}`;
+        }
         else if (searchQueryActive) countLabel.textContent = searchMatches.size ? `${searchMatches.size} matching note${searchMatches.size === 1 ? "" : "s"}` : "No notes match this search";
-        else countLabel.textContent = `${nodes.length} actual notes · ${links.length} shared-concept links`;
+        else {
+          const referenceCount = links.reduce((total, link) => total + link.references.length, 0);
+          countLabel.textContent = `${nodes.length} actual notes · ${links.length} connections · ${referenceCount} wiki references`;
+        }
       }
     };
 
@@ -373,7 +414,7 @@
       const applyGraphSearch = () => {
         const query = normalize(search.value.trim());
         searchQueryActive = Boolean(query);
-        searchMatches = new Set(query ? nodes.filter((node) => normalize([node.title, node.description, ...(node.tags || []), ...(node.people || [])].join(" ")).includes(query)).map((node) => node.id) : []);
+        searchMatches = new Set(query ? nodes.filter((node) => normalize([node.title, node.description, ...(node.tags || []), ...(node.people || []), ...(node.wikilinks || []).flatMap((reference) => [reference.target_title, reference.target_section, reference.source_section])].join(" ")).includes(query)).map((node) => node.id) : []);
         selected = searchMatches.size === 1 ? nodes.find((node) => searchMatches.has(node.id)) : null;
         updateDetail();
         draw();

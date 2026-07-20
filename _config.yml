@@ -12,6 +12,9 @@ timezone: America/New_York
 google_site_verification: ""
 google_analytics: "G-6VQSSQG4PY"
 
+wikilinks:
+  strict: true
+
 author:
   name: "Srinivas Venkatanarayanan"
   url: "https://vi-sri.github.io/about/"
@@ -34,6 +37,7 @@ future: false
 show_excerpts: true
 markdown: kramdown
 strict_front_matter: true
+disable_disk_cache: true
 kramdown:
   input: GFM
   syntax_highlighter: rouge

@@ -6,6 +6,7 @@ The source for [vi-sri.github.io](https://vi-sri.github.io): essays, field notes
 
 - A Jekyll site hosted on GitHub Pages
 - Search and an interactive concept graph without an external database
+- Obsidian-style wikilinks, section links, automatic backlinks, and explicit-reference graph edges
 - Structured article metadata, an XML sitemap, and an RSS feed
 - A public Todo → In progress → Published writing board that keeps unfinished notes visible but out of search indexes
 - A [four-month revival plan](docs/FOUR_MONTH_REVIVAL_PLAN.md)
@@ -34,6 +35,7 @@ Visit `http://localhost:4000`. While the container is running, Jekyll watches th
 
 - Follow [Search and measurement setup](docs/SEARCH_AND_MEASUREMENT_SETUP.md) after creating the Google properties.
 - Use [Mathematics and visualization guide](docs/VISUALIZATION_GUIDE.md) for MathJax, p5.js, Manim, and sandboxed interactive figures.
+- Use [Wikilinks and backlinks](docs/WIKILINKS.md) to connect notes and exact sections.
 
 ## Publish a piece
 
