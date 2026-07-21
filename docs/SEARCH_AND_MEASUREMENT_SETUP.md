@@ -4,11 +4,11 @@ The repository already generates canonical URLs, article metadata, author metada
 
 ## Google Search Console
 
-1. Open Google Search Console and add the URL-prefix property `https://vi-sri.github.io/`.
+1. Open Google Search Console and add the URL-prefix property `https://tummo.ai/`.
 2. Choose **HTML tag** verification.
 3. Copy only the value inside `content="…"` from the verification tag.
 4. Put that value in `_config.yml` as `google_site_verification`.
-5. Publish the site, verify the property, then submit `https://vi-sri.github.io/sitemap.xml`.
+5. Publish the site, verify the property, then submit `https://tummo.ai/sitemap.xml`.
 6. Inspect `/`, `/about/`, `/research/`, and each finished essay. Todo and in-progress notes intentionally use `noindex` and do not appear in the sitemap.
 
 The verification value is public by design and may be committed. Never commit Google account credentials or API secrets.
@@ -16,7 +16,7 @@ The verification value is public by design and may be committed. Never commit Go
 ## Google Analytics 4
 
 1. Create one GA4 property for the notebook.
-2. Add a web data stream for `https://vi-sri.github.io`.
+2. Add a web data stream for `https://tummo.ai`.
 3. The GA4 Measurement ID `G-6VQSSQG4PY` is configured in `_config.yml` as `google_analytics`.
 4. Publish and accept analytics in the site banner during a test visit.
 5. Confirm the visit in GA4 Realtime.

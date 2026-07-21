@@ -1,6 +1,6 @@
 # Srinivas Venkatanarayanan — connected research notebook
 
-The source for [vi-sri.github.io](https://vi-sri.github.io): essays, field notes, simulations, and research connecting computation, evolution, morphogenesis, artificial intelligence, complex adaptive systems, and mathematical physics.
+The source for [tummo.ai](https://tummo.ai): essays, field notes, simulations, and research connecting computation, evolution, morphogenesis, artificial intelligence, complex adaptive systems, and mathematical physics.
 
 ## What this repository contains
 

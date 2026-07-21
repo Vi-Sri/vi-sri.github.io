@@ -1,7 +1,7 @@
 title: "Srinivas Venkatanarayanan"
 tagline: "Computation, emergence, and the architectures of life"
 description: "Research essays and field notes connecting computation, evolution, morphogenesis, artificial intelligence, complex adaptive systems, and mathematical physics."
-url: "https://vi-sri.github.io"
+url: "https://tummo.ai"
 baseurl: ""
 repository: "Vi-Sri/vi-sri.github.io"
 lang: en-US
@@ -17,7 +17,7 @@ wikilinks:
 
 author:
   name: "Srinivas Venkatanarayanan"
-  url: "https://vi-sri.github.io/about/"
+  url: "https://tummo.ai/about/"
   email: "srinivasvishal7@gmail.com"
 
 logo: /assets/images/profile.png
