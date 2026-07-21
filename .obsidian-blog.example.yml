@@ -1,0 +1,6 @@
+vault: "/absolute/path/to/your/Obsidian/vault"
+drafts_dir: "30 Drafts"
+templates_dir: "90 Templates"
+attachments_dir: "Attachments"
+posts_dir: "_posts"
+assets_dir: "assets/notes"

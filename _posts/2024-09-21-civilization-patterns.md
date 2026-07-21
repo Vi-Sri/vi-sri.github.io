@@ -1,15 +1,29 @@
 ---
-title: "Civilization as an Adaptive System: Beyond the Techno-Feudalism Metaphor"
-description: "A systems-level inquiry into institutions, technology, power, and the recurring mistake of treating historical metaphors as mechanisms."
-tags: [complex-adaptive-systems, social-systems, evolution, institutions]
+title: 'Civilization as an Adaptive System: Beyond the Techno-Feudalism Metaphor'
+description: A systems-level inquiry into institutions, technology, power, and the
+  recurring mistake of treating historical metaphors as mechanisms.
+tags:
+- complex-adaptive-systems
+- social-systems
+- evolution
+- institutions
 people: []
-aliases: [Civilization Patterns, Adaptive Institutions]
+aliases:
+- Civilization Patterns
+- Adaptive Institutions
 category: bob
 content_type: essay
 status: todo
-next_step: "Define competing mechanisms and collect evidence that could distinguish them."
+next_step: Define competing mechanisms and collect evidence that could distinguish
+  them.
 sitemap: false
+slug: civilization-patterns
+date: '2024-09-21'
+obsidian_source: 30 Drafts/civilization-patterns.md
+obsidian_sha256: bec6b809b2e53d5c3aa3f2664013561f0adc6c2a7396993e7a5f68bc57ea5265
 ---
+
+<!-- Generated from Obsidian: 30 Drafts/civilization-patterns.md. Edit the vault source, then run bin/blog sync. -->
 
 # Civilization as an adaptive system
 

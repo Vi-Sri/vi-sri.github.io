@@ -36,6 +36,7 @@ Visit `http://localhost:4000`. While the container is running, Jekyll watches th
 - Follow [Search and measurement setup](docs/SEARCH_AND_MEASUREMENT_SETUP.md) after creating the Google properties.
 - Use [Mathematics and visualization guide](docs/VISUALIZATION_GUIDE.md) for MathJax, p5.js, Manim, and sandboxed interactive figures.
 - Use [Wikilinks and backlinks](docs/WIKILINKS.md) to connect notes and exact sections.
+- Use [Obsidian publishing](docs/OBSIDIAN_PUBLISHING.md) for the private research → validated blog workflow.
 
 ## Publish a piece
 
