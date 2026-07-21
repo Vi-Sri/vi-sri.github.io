@@ -58,6 +58,38 @@ Validation rejects unresolved or noncanonical wikilinks, missing target sections
 
 The compiler does not commit or publish automatically. Review the local preview, then use the normal pull-request and GitHub Pages workflow.
 
+## Publish with Codex
+
+Open the blog repository in Codex and use this request, replacing the filename:
+
+```text
+Prepare 30 Drafts/my-article.md from my Obsidian vault for publication.
+Review its metadata, links, exact-section references, math, figures, citations,
+and accessibility. Do not invent sources or alter private notes unnecessarily.
+Report anything blocking publication. If there is no blocker, set status to
+published and blog_publish to true; run the normalization/check/sync pipeline;
+rebuild the Docker preview; show me the resulting diff; commit it on an agent
+branch; push it; open a pull request; wait for GitHub checks; merge it; and
+verify GitHub Pages.
+```
+
+For a review without publication, end the request after “report anything blocking publication.” Keep `blog_publish: false` while the note is private. Setting it to `true` permits the entire draft body to enter the repository; `todo` and `in-progress` affect search indexing, not confidentiality.
+
+## Compiler and post-processing stages
+
+`bin/blog sync` performs a deterministic export:
+
+1. Read `.obsidian-blog.yml` and discover Markdown notes in the vault.
+2. Build a target index from canonical filenames, titles, slugs, and aliases.
+3. Select only notes in `30 Drafts` with `blog_publish: true`.
+4. Parse YAML properties and validate required metadata, dates, statuses, and unique slugs.
+5. Parse wikilinks outside inline/fenced code; reject missing notes, missing headings, public-to-private links, and note transclusions. `normalize-links` rewrites alias/title destinations to canonical filenames while preserving labels.
+6. Resolve supported attachment embeds, copy them to `assets/notes/<slug>/`, and convert them to ordinary Markdown image/download links. Missing or ambiguous files stop the export.
+7. Write `_posts/YYYY-MM-DD-<slug>.md`, remove the private `blog_publish` property, add source provenance and a SHA-256 fingerprint, and keep non-published work out of the sitemap.
+8. During Jekyll build, convert wikilinks to accessible HTML links, validate section anchors again, generate outgoing-reference data and backlinks, and expose explicit connections to the Explore graph. Page flags opt into MathJax or p5.js only where needed.
+
+The exporter refuses to overwrite an unmanaged post and reports generated posts whose source was removed instead of deleting them automatically. This makes publication reviewable in Git before any push.
+
 ## Obsidian CLI
 
 Obsidian CLI requires the desktop app to be running. With Obsidian open:
