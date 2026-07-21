@@ -5,12 +5,13 @@ Wikilinks encode deliberate relationships inside the prose. They are different f
 ## Syntax
 
 ```markdown
-[[Pinecones]]
-[[Pinecones#Questions this note must answer]]
-[[Pinecones#Questions this note must answer|the unresolved mechanics]]
+[[pinecone]]
+[[pinecone#Questions this note must answer]]
+[[pinecone#Questions this note must answer|the unresolved mechanics]]
+[[pinecone|Pinecones]]
 ```
 
-Targets resolve by exact title, URL slug, or an `aliases` entry in front matter. Section fragments are generated from Markdown headings. Wikilinks inside fenced code blocks or inline code are left unchanged. Prefix a literal wikilink with a backslash when it should appear as prose rather than become a link.
+Use the canonical note filename as the destination. Put a title or alias after `|` when the reader should see different text. `bin/blog normalize-links` converts title/alias destinations into this form automatically. Section fragments are generated from Markdown headings. Wikilinks inside fenced code blocks or inline code are left unchanged. Prefix a literal wikilink with a backslash when it should appear as prose rather than become a link.
 
 ```markdown
 \[[This remains literal]]
@@ -25,7 +26,7 @@ title: "Pinecones, Phyllotaxis, and the Computation of Form"
 aliases: [Pinecones, Phyllotaxis]
 ```
 
-Aliases are authoring conveniences. The generated link always points to the canonical URL.
+Aliases are reader-facing labels and lookup hints for the normalizer. Use `[[pinecone|Pinecones]]`, rather than `[[Pinecones]]`, so the same link resolves both in Obsidian and on the generated site. The generated link always points to the canonical URL.
 
 ## Generated behavior
 
