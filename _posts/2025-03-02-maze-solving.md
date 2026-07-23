@@ -1,28 +1,42 @@
 ---
 title: Maze Solving as Search, Memory, and Embodied Computation
-description: 'From graph search to slime molds: what changes when a maze solver is
-  an algorithm, a body, or a distributed physical process?'
-tags:
-- algorithms
-- search
-- embodied-computation
-- nature-inspired-computing
-people:
-- Edsger Dijkstra
+slug: maze-solving
 aliases:
 - Maze Solving
 - Embodied Maze Solving
-category: bob
-content_type: explainer
+- Mazes as Computation
+description: 'From graph search and information limits to slime molds and physical
+  computation: what changes when a maze solver is an algorithm, an embodied agent,
+  or a distributed dynamical system?'
+date: '2025-03-02'
+updated: 2026-07-21
 status: in-progress
-next_step: Build comparable algorithmic and embodied solver visualizations.
-sitemap: false
+content_type: explainer
+tags:
+- algorithms
+- graph-search
+- pathfinding
+- embodied-computation
+- unconventional-computing
+- nature-inspired-computing
+- complex-adaptive-systems
+people:
+- Claude Shannon
+- Edsger Dijkstra
+- Peter Hart
+- Nils Nilsson
+- Bertram Raphael
+- Toshiyuki Nakagaki
+next_step: Formalize the solver comparison and build reproducible p5.js visualizations
+  for graph search, local navigation, and a Physarum-inspired embodied solver.
+math: true
+p5: true
+category: bob
 related:
 - pinecone
-slug: maze-solving
-date: '2025-03-02'
+sitemap: false
 obsidian_source: 30 Drafts/maze-solving.md
-obsidian_sha256: 3a6d9eedef1c1c16a41fdc1b15a1cf4e46b70f221901677bc3b4c7509f710d4d
+obsidian_sha256: d3f1981c6e69ed0160a56c80f297c016af92776c0727177c12345c1987479b3f
 ---
 
 <!-- Generated from Obsidian: 30 Drafts/maze-solving.md. Edit the vault source, then run bin/blog sync. -->

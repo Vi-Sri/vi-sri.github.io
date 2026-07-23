@@ -23,7 +23,7 @@ related:
 slug: fourier-transforms-and-images
 date: '2024-03-27'
 obsidian_source: 30 Drafts/fourier-transforms-and-images.md
-obsidian_sha256: 7bbb3852e8b313e4a0807218cfe736257662a076a450fe0dd9143f806dd4f689
+obsidian_sha256: b80a30df9e2963bb80bc37cada8c8726939c0526606c65d0c137afc96bfb2fd5
 ---
 
 <!-- Generated from Obsidian: 30 Drafts/fourier-transforms-and-images.md. Edit the vault source, then run bin/blog sync. -->
@@ -36,7 +36,7 @@ The deeper issue is geometric: a representation changes which differences appear
 
 ## Questions this note must answer
 
-- What changes—and what does not—when a signal moves from space or time into frequency?
+- What changes, and what does not, when a signal moves from space or time into frequency?
 - Why are locality and sparsity represented differently in the two domains?
 - What exactly do convolutional models inherit from the Fourier view of translation?
 - Where does the analogy between Fourier bases and learned latent spaces break?

@@ -1,4 +1,4 @@
-# Srinivas Venkatanarayanan — connected research notebook
+# Srinivas Venkatanarayanan: connected research notebook
 
 The source for [tummo.ai](https://tummo.ai): essays, field notes, simulations, and research connecting computation, evolution, morphogenesis, artificial intelligence, complex adaptive systems, and mathematical physics.
 
@@ -11,6 +11,7 @@ The source for [tummo.ai](https://tummo.ai): essays, field notes, simulations, a
 - A public Todo → In progress → Published writing board that keeps unfinished notes visible but out of search indexes
 - A [four-month revival plan](docs/FOUR_MONTH_REVIVAL_PLAN.md)
 - An [editorial and research playbook](docs/EDITORIAL_PLAYBOOK.md)
+- A [shared project memory and end-to-end operating guide](docs/PROJECT_MEMORY.md) for Obsidian, Codex, compilation, and deployment
 
 ## Local development
 

@@ -9,7 +9,7 @@ permalink: /
     <div class="hero-copy">
       <p class="eyebrow">A connected research notebook</p>
       <h1>How do simple rules become <em>living worlds?</em></h1>
-      <p class="hero-deck">I study the recurring architectures behind computation, evolution, morphogenesis, intelligence, and collective behavior—then turn the connections into essays, simulations, and research.</p>
+      <p class="hero-deck">I study the recurring architectures behind computation, evolution, morphogenesis, intelligence, and collective behavior, then turn the connections into essays, simulations, and research.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="{{ '/writing/' | relative_url }}">Read the writing</a>
         <a class="button button-secondary" href="{{ '/explore/' | relative_url }}">Explore the concept graph</a>

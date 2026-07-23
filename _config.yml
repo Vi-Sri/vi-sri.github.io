@@ -76,6 +76,7 @@ defaults:
       sitemap: false
 
 exclude:
+  - AGENTS.md
   - docs
   - Gemfile
   - Gemfile.lock

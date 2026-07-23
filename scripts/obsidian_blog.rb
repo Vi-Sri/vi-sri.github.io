@@ -19,6 +19,7 @@ class ObsidianBlog
   HEADING_PATTERN = /^\s{0,3}([#]{1,6})\s+(.+?)\s*#*\s*$/.freeze
   IMAGE_EXTENSIONS = %w[.avif .gif .jpeg .jpg .png .svg .webp].freeze
   DOWNLOAD_EXTENSIONS = %w[.csv .json .pdf .txt .zip].freeze
+  EM_DASH = "\u2014"
 
   def initialize(root: Pathname.new(__dir__).join("..").expand_path)
     @root = root
@@ -148,7 +149,7 @@ class ObsidianBlog
 
   def status
     drafts = draft_notes
-    puts "Obsidian blog pipeline — #{@vault}"
+    puts "Obsidian blog pipeline: #{@vault}"
     ALLOWED_STATUSES.each do |stage|
       notes = drafts.select { |note| note.data["status"].to_s == stage }
       puts "\n#{stage.upcase} (#{notes.size})"
@@ -279,6 +280,9 @@ class ObsidianBlog
     exported_paths = exported.map(&:path).to_h { |path| [path.expand_path.to_s, true] }
     slug_owners = {}
     exported.each do |note|
+      if note.body.include?(EM_DASH) || JSON.generate(note.data).include?(EM_DASH)
+        errors << "#{note.relative_path}: contains an em dash; rewrite it with a colon, comma, semicolon, or parentheses"
+      end
       REQUIRED_PROPERTIES.each do |property|
         value = note.data[property]
         errors << "#{note.relative_path}: missing #{property}" if value.nil? || value.to_s.strip.empty?

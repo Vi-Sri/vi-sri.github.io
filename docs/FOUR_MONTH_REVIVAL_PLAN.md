@@ -1,7 +1,7 @@
 # Four-month revival plan
 
 **Window:** July 20–November 17, 2026  
-**North star:** Become a recognizable, trusted voice at the intersection of computation, evolution, morphogenesis, and complex systems—not merely a blog with more traffic.
+**North star:** Become a recognizable, trusted voice at the intersection of computation, evolution, morphogenesis, and complex systems, not merely a blog with more traffic.
 
 “Famous” is not a controllable four-month outcome. Reputation signals are. This plan optimizes for work that is memorable, citable, discussable, and connected to reproducible artifacts.
 
@@ -33,7 +33,7 @@ Do not optimize for raw page views, posting streaks, or social impressions witho
 
 This is deliberately fewer long essays than a content-marketing plan. The quality bar is closer to a small paper than a generic blog post.
 
-## Month 1 — Identity, indexability, and the first argument
+## Month 1: Identity, indexability, and the first argument
 
 **July 20–August 16**
 
@@ -48,7 +48,7 @@ This is deliberately fewer long essays than a content-marketing plan. The qualit
 
 1. **A Pattern Is Not a Body: From Turing’s Reaction–Diffusion Equations to Levin’s Bioelectric Goals**  
    Contribution: separate pattern formation, anatomical error correction, and goal-directed regulation; end with testable disagreements.
-2. **Shannon Without the Metaphors: What Information Theory Says—and Does Not Say—About Life**  
+2. **Shannon Without the Metaphors: What Information Theory Says, and Does Not Say, About Life**
    Contribution: a rigorous guide to entropy, semantic overreach, and when information language becomes causally useful.
 
 ### Artifacts
@@ -63,7 +63,7 @@ This is deliberately fewer long essays than a content-marketing plan. The qualit
 - Hacker News or Lobsters only when the simulation is runnable and technically novel.
 - Thoughtful email to five cited researchers after publication: one paragraph, one precise question, no request to “share.”
 
-## Month 2 — Own a conceptual bridge
+## Month 2: Own a conceptual bridge
 
 **August 17–September 13**
 
@@ -89,9 +89,9 @@ This is deliberately fewer long essays than a content-marketing plan. The qualit
 
 - Turn code into a separate, clean GitHub repository with a citable release.
 - Invite one artificial-life researcher to critique the comparison, and publish substantive corrections.
-- Pitch a guest seminar, lab reading group, or podcast around the bridge—not around personal promotion.
+- Pitch a guest seminar, lab reading group, or podcast around the bridge rather than around personal promotion.
 
-## Month 3 — Convert synthesis into research
+## Month 3: Convert synthesis into research
 
 **September 14–October 11**
 
@@ -120,7 +120,7 @@ Proceed only if all answers are “yes”:
 
 If the empirical gate fails, write a rigorous position or survey paper instead of disguising synthesis as a novel experiment.
 
-## Month 4 — Preprint and coordinated launch
+## Month 4: Preprint and coordinated launch
 
 **October 12–November 17**
 
@@ -154,7 +154,7 @@ These are not biographies. Each person opens a mechanism, dispute, or experiment
 | Person | Field-note question |
 |---|---|
 | Alan Turing | What did the 1952 morphogenesis model explain, and what did it deliberately leave out? |
-| Claude Shannon | Why is semantic meaning absent from the formal theory—and when is that a feature? |
+| Claude Shannon | Why is semantic meaning absent from the formal theory, and when is that a feature? |
 | John von Neumann | Why does a self-reproducing constructor need a description used in two different ways? |
 | John Conway | What does universality establish about a cellular automaton, and what does it not establish about life? |
 | Michael Levin | Are bioelectric target states best understood as goals, control set-points, or observer-relative descriptions? |
@@ -162,17 +162,17 @@ These are not biographies. Each person opens a mechanism, dispute, or experiment
 | D’Arcy Thompson | When does physical constraint explain biological form without replacing evolution? |
 | W. Ross Ashby | How does requisite variety connect regulation, adaptation, and the boundaries of an agent? |
 | John Holland | Which parts of complex adaptive systems theory became operational, and which remained metaphorical? |
-| Ilya Prigogine | What does a dissipative structure explain about living order—and where does thermodynamics stop? |
+| Ilya Prigogine | What does a dissipative structure explain about living order, and where does thermodynamics stop? |
 
-## Venue map—not a submission promise
+## Venue map, not a submission promise
 
 Select a venue only after the contribution exists. Policies and calls must be rechecked on official pages before submission.
 
-- [Artificial Life (MIT Press)](https://direct.mit.edu/artl) — strongest fit for synthetic or simulated systems that advance understanding of living processes.
-- [Complex Systems](https://www.complex-systems.com/about/) — broad fit across mathematics, physics, computer science, and biology when simple components produce complex collective behavior.
-- [IEEE Transactions on Evolutionary Computation](https://cis.ieee.org/publications/t-evolutionary-computation) — fit for a substantial, technically evaluated evolutionary-computation contribution rather than a conceptual essay.
-- [International Society for Artificial Life conferences](https://alife.org/conferences/) — use the 2026 meeting for community learning if practical; target 2027 for new work because the 2026 submission deadline has passed.
-- GECCO 2027 — likely fit for rigorous evolutionary algorithms, quality diversity, genetic programming, or open-ended search; wait for the official 2027 call.
+- [Artificial Life (MIT Press)](https://direct.mit.edu/artl): strongest fit for synthetic or simulated systems that advance understanding of living processes.
+- [Complex Systems](https://www.complex-systems.com/about/): broad fit across mathematics, physics, computer science, and biology when simple components produce complex collective behavior.
+- [IEEE Transactions on Evolutionary Computation](https://cis.ieee.org/publications/t-evolutionary-computation): fit for a substantial, technically evaluated evolutionary-computation contribution rather than a conceptual essay.
+- [International Society for Artificial Life conferences](https://alife.org/conferences/): use the 2026 meeting for community learning if practical; target 2027 for new work because the 2026 submission deadline has passed.
+- GECCO 2027: likely fit for rigorous evolutionary algorithms, quality diversity, genetic programming, or open-ended search; wait for the official 2027 call.
 
 The four-month goal is one defensible preprint. Journal acceptance is outside the window and outside the author’s control.
 
