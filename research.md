@@ -34,11 +34,11 @@ permalink: /research/
 
 ## Evidence ladder
 
-1. **Observation** — record a surprising phenomenon and the competing explanations.
-2. **Synthesis** — connect the primary literature and state a narrow, falsifiable claim.
-3. **Artifact** — publish code, data, simulations, and negative results.
-4. **Preprint** — freeze the claim, methods, limitations, and reproducibility package.
-5. **Peer review** — submit where the actual contribution belongs, not where the topic merely sounds fashionable.
+1. **Observation:** record a surprising phenomenon and the competing explanations.
+2. **Synthesis:** connect the primary literature and state a narrow, falsifiable claim.
+3. **Artifact:** publish code, data, simulations, and negative results.
+4. **Preprint:** freeze the claim, methods, limitations, and reproducibility package.
+5. **Peer review:** submit where the actual contribution belongs, not where the topic merely sounds fashionable.
 
 ## Research integrity
 
@@ -48,4 +48,3 @@ Every substantive piece will distinguish evidence from speculation, link primary
   <strong>Collaboration</strong>
   <p>If you work on artificial life, evolutionary computation, morphogenesis, complex systems, or mathematical models of agency, <a href="mailto:{{ site.author.email }}">send a note</a>. Concrete criticism and disconfirming evidence are especially welcome.</p>
 </div>
-

@@ -18,7 +18,7 @@ related: [another-post-slug]
 
 ## The anomaly
 
-Begin with an observation, result, or contradiction—not the history of the whole field.
+Begin with an observation, result, or contradiction rather than the history of the whole field.
 
 ## The naive story
 

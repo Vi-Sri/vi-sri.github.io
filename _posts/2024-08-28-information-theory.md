@@ -1,6 +1,6 @@
 ---
 title: 'Statistical Manifolds: What Kind of Space Is a Model?'
-description: A route from probability distributions to information geometry—and from
+description: A route from probability distributions to information geometry, and from
   representing a world to learning within it.
 tags:
 - information-geometry
@@ -24,14 +24,14 @@ related:
 slug: information-theory
 date: '2024-08-28'
 obsidian_source: 30 Drafts/information-theory.md
-obsidian_sha256: 886b21868b1af54aa77f065867ec032e9db8d2eab9e99a84c21410ee8a4ba9e4
+obsidian_sha256: febd20e05fa3c1ab3ed79002775ce40703422044cefa7aeca82360c5d4f5942a
 ---
 
 <!-- Generated from Obsidian: 30 Drafts/information-theory.md. Edit the vault source, then run bin/blog sync. -->
 
 # Statistical manifolds
 
-Machine-learning models do not merely occupy parameter space. They induce families of probability distributions with geometry of their own. This note asks what that geometry buys us—and when the word “manifold” clarifies rather than decorates an argument.
+Machine-learning models do not merely occupy parameter space. They induce families of probability distributions with geometry of their own. This note asks what that geometry buys us, and when the word “manifold” clarifies rather than decorates an argument.
 
 ## Questions this note must answer
 

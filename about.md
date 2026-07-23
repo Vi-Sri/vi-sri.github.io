@@ -18,18 +18,18 @@ permalink: /about/
 
 ### Current
 
-- **Research Engineer — NVIDIA** · Present
+- **Research Engineer, NVIDIA** · Present
 
 ### Previous research and engineering roles
 
-- **Imaging Research Intern — Williams-Sonoma** · San Francisco · 2025
-- **Machine Learning Research Intern — Qualcomm** · San Diego · 2024
-- **Graduate Research Assistant — Center for Research in Computer Vision, University of Central Florida** · Orlando · 2023
-- **Lead Machine Learning Engineer — Toyota Connected** · Chennai · 2020
-- **Lead Engineer, Centre of Excellence–AI — HCL Research** · Chennai · 2019
-- **Machine Learning Engineer — Mad Street Den** · Chennai · 2019
-- **Project Engineer, Computer Vision — Econ Systems** · Chennai · 2017
-- **Member Technical Staff — Zoho** · Chennai · 2017
+- **Imaging Research Intern, Williams-Sonoma** · San Francisco · 2025
+- **Machine Learning Research Intern, Qualcomm** · San Diego · 2024
+- **Graduate Research Assistant, Center for Research in Computer Vision, University of Central Florida** · Orlando · 2023
+- **Lead Machine Learning Engineer, Toyota Connected** · Chennai · 2020
+- **Lead Engineer, Centre of Excellence–AI, HCL Research** · Chennai · 2019
+- **Machine Learning Engineer, Mad Street Den** · Chennai · 2019
+- **Project Engineer, Computer Vision, Econ Systems** · Chennai · 2017
+- **Member Technical Staff, Zoho** · Chennai · 2017
 
 ### Research consulting
 
@@ -44,4 +44,3 @@ permalink: /about/
 I welcome research collaborations built around a precise question, a reproducible artifact, and genuine room for disagreement. I am particularly interested in collaborators who can bridge formal models with biological or physical evidence.
 
 [Email me](mailto:{{ site.author.email }}) · [GitHub](https://github.com/Vi-Sri) · [LinkedIn](https://www.linkedin.com/in/vishal-srinivas-9234703a/)
-

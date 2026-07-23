@@ -19,6 +19,39 @@
   const normalize = (value) => (value || "").toLowerCase().replace(/[-_]/g, " ");
   const matches = (item, query) => normalize([item.title, item.description, item.terms].join(" ")).includes(normalize(query));
 
+  function setupTheme() {
+    const button = document.querySelector("[data-theme-toggle]");
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const preferenceKey = "tummo-color-theme";
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (!button) return;
+
+    const savedPreference = () => {
+      try { return window.localStorage.getItem(preferenceKey); } catch (_) { return null; }
+    };
+    const applyTheme = (theme, persist) => {
+      const dark = theme === "dark";
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.style.colorScheme = theme;
+      document.documentElement.dataset.themeReady = "true";
+      button.setAttribute("aria-pressed", String(dark));
+      button.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+      button.querySelector("[data-theme-label]").textContent = dark ? "Light" : "Dark";
+      if (themeColor) themeColor.setAttribute("content", dark ? "#29322f" : "#f5f0e5");
+      if (persist) {
+        try { window.localStorage.setItem(preferenceKey, theme); } catch (_) {}
+      }
+    };
+
+    applyTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light", false);
+    button.addEventListener("click", () => {
+      applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark", true);
+    });
+    media.addEventListener("change", (event) => {
+      if (!savedPreference()) applyTheme(event.matches ? "dark" : "light", false);
+    });
+  }
+
   function setupNavigation() {
     const toggle = document.querySelector(".nav-toggle");
     const nav = document.querySelector(".site-nav");
@@ -78,7 +111,7 @@
         const title = document.createElement("strong");
         title.textContent = item.title;
         const meta = document.createElement("small");
-        meta.textContent = `${item.type} — ${item.description}`;
+        meta.textContent = `${item.type}: ${item.description}`;
         link.append(title, meta);
         link.addEventListener("click", () => {
           if (window.trackSiteEvent) window.trackSiteEvent("search_result_selected", { search_term: query, content_type: item.type, item_name: item.title });
@@ -444,6 +477,7 @@
     });
   }
 
+  setupTheme();
   setupNavigation();
   setupSearch();
   setupArchive();

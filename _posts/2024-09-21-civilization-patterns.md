@@ -20,14 +20,14 @@ sitemap: false
 slug: civilization-patterns
 date: '2024-09-21'
 obsidian_source: 30 Drafts/civilization-patterns.md
-obsidian_sha256: bec6b809b2e53d5c3aa3f2664013561f0adc6c2a7396993e7a5f68bc57ea5265
+obsidian_sha256: 75a37a64930a7d5799b60115e881e6bd95afc62915de0b47a3f78a7856ec8176
 ---
 
 <!-- Generated from Obsidian: 30 Drafts/civilization-patterns.md. Edit the vault source, then run bin/blog sync. -->
 
 # Civilization as an adaptive system
 
-“Techno-feudalism” is a vivid description. But a description is not yet a model. This inquiry asks which feedback loops, ownership structures, and selection pressures would make the analogy explanatory—and what observations would falsify it.
+“Techno-feudalism” is a vivid description. But a description is not yet a model. This inquiry asks which feedback loops, ownership structures, and selection pressures would make the analogy explanatory, and what observations would falsify it.
 
 ## Questions this note must answer
 
