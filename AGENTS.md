@@ -4,6 +4,8 @@ Read `docs/PROJECT_MEMORY.md` in full before changing this repository or the con
 
 For any task concerning a topic, source, concept, article, simulation, or paper, also read `docs/BLOG_RESEARCH_ROADMAP.md` in full. Then inspect the current Obsidian note before editing. The roadmap is the shared portfolio and cross-chat handoff context; the current vault note remains authoritative for article prose and front matter.
 
+For any task that captures, creates, promotes, or reorganizes research material, also read `docs/OBSIDIAN_VAULT_WORKFLOW.md`. Raw clips, unverified references, and every form of AI-generated research material or candidate article content must enter through `00 Inbox`. AI-generated prose must not be written directly into `10 Sources`, `20 Concepts`, or `30 Drafts`. Operational guides, templates, and board configuration remain in their functional locations.
+
 The user's current request overrides the defaults below. Otherwise:
 
 - Treat the Obsidian vault as the source of truth for article prose and front matter. Do not directly edit a generated `_posts` file carrying `obsidian_source`.

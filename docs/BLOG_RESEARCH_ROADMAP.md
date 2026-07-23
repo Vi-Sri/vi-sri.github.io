@@ -26,8 +26,9 @@ Every chat in this project should first read:
 A chat working on a topic, source, concept, article, simulation, or paper should also read:
 
 3. `docs/BLOG_RESEARCH_ROADMAP.md`
-4. the current Obsidian source note, if one exists
-5. the relevant source and concept notes, only as needed
+4. `docs/OBSIDIAN_VAULT_WORKFLOW.md`
+5. the current Obsidian source note, if one exists
+6. the relevant source and concept notes, only as needed
 
 A publishing or site-maintenance chat should inspect the current Git status and the compiler status before making changes:
 
@@ -807,6 +808,12 @@ Evidence, code, and release dates must never be invented to fill a roadmap.
 
 ## 9. Research preprocessing in Obsidian
 
+The complete folder contract and everyday workflow are in
+[OBSIDIAN_VAULT_WORKFLOW.md](OBSIDIAN_VAULT_WORKFLOW.md). The non-negotiable
+intake rule is that raw clips, unverified references, and every form of
+AI-generated content enter through `00 Inbox`. AI-generated prose does not go
+directly into Sources, Concepts, or Drafts.
+
 ### 9.1 Capture
 
 Configure Obsidian Web Clipper to save into:
@@ -816,6 +823,10 @@ Configure Obsidian Web Clipper to save into:
 ```
 
 A clip is an untrusted input. Preserve URL, title, author, publication date, and clipped date when available. Do not paste clipped prose directly into a public draft without verification and synthesis.
+
+Use `00 Inbox/References` for unverified paper, DOI, bibliography, dataset, code,
+and citation leads. Use `00 Inbox/AI Intake` for every AI-generated summary,
+outline, equation, code sample, citation suggestion, or candidate passage.
 
 ### 9.2 Triage
 
@@ -827,13 +838,14 @@ For each useful clip:
 4. Check publication details and stable links.
 5. Note limitations, counterevidence, and possible conflicts.
 6. Extract only short quotations needed for later verification.
-7. Move durable evidence into `10 Sources`.
-8. Move reusable synthesis into `20 Concepts`.
-9. Delete, archive, or leave the raw clip in the inbox according to personal preference. It remains private either way.
+7. Create a new, clean evidence record in `10 Sources` only after checking the actual source.
+8. Write reusable human synthesis in `20 Concepts`.
+9. Keep AI-generated prose in `00 Inbox/AI Intake`; never promote it verbatim.
+10. Delete, archive, or leave the raw intake item according to personal preference. It remains private either way.
 
 ### 9.3 Source notes
 
-Create one source note per paper, book chapter, dataset, talk, or authoritative page when it will be used materially.
+Create one source note per paper, book chapter, dataset, talk, or authoritative page when it will be used materially and its provenance has been checked. Do not turn a raw clip or AI summary into a source note by moving the file.
 
 Recommended body:
 
@@ -846,7 +858,7 @@ Recommended body:
 
 ## Limitations and counterevidence
 
-## Quotations to verify
+## Verified quotations and locators
 
 ## Connections
 
@@ -1483,27 +1495,27 @@ Remaining issues:
 ### Start research on one planned article
 
 ```text
-Read AGENTS.md, docs/PROJECT_MEMORY.md, and
-docs/BLOG_RESEARCH_ROADMAP.md in full. Work only on the article:
+Read AGENTS.md, docs/PROJECT_MEMORY.md, docs/BLOG_RESEARCH_ROADMAP.md, and
+docs/OBSIDIAN_VAULT_WORKFLOW.md in full. Work only on the article:
 <ARTICLE OR FLAGSHIP>. Inspect the current Obsidian note before editing and use
-the vault as the source of truth. Build a primary-source research map, separate
-evidence from inference and speculation, identify the strongest objection,
-check the planned math and artifact, and improve the current private draft.
-Preserve blog_publish, status, slug, and date unless I explicitly ask to change
-them. Do not sync, commit, push, open a pull request, or deploy. Finish with the
-research-to-publishing handoff packet from the roadmap.
+the vault as the source of truth. Put unverified reference leads in
+00 Inbox/References and every AI-generated output in 00 Inbox/AI Intake. Do not
+write AI-generated prose directly into Sources, Concepts, or Drafts. Build a
+primary-source research map, separate evidence from inference and speculation,
+identify the strongest objection, and check the planned math and artifact.
+Preserve blog_publish, status, slug, and date. Do not sync, commit, push, open a
+pull request, or deploy. Finish with the research-to-publishing handoff packet.
 ```
 
 ### Process captured research
 
 ```text
-Read AGENTS.md, docs/PROJECT_MEMORY.md, and
-docs/BLOG_RESEARCH_ROADMAP.md. Triage the relevant Web Clipper notes in
-00 Inbox/Web Clips for <TOPIC>. Locate primary sources where needed, create or
-improve private source notes in 10 Sources, update useful concept notes in
-20 Concepts, and tell me which claims can responsibly enter the target draft.
-Do not copy clipped prose into the article, invent citations, change public
-state, sync, or use Git.
+Read AGENTS.md, docs/PROJECT_MEMORY.md, docs/BLOG_RESEARCH_ROADMAP.md, and
+docs/OBSIDIAN_VAULT_WORKFLOW.md. Triage the relevant Inbox notes for <TOPIC>.
+Keep unverified references in 00 Inbox/References and every AI-generated output
+in 00 Inbox/AI Intake. Locate the actual primary sources and report what has
+been verified. Do not copy clipped or AI prose into Sources, Concepts, or
+Drafts, invent citations, change public state, sync, or use Git.
 ```
 
 ### Develop mathematics and an interactive
@@ -1590,4 +1602,5 @@ For every update:
 
 ### Change log
 
+- **2026-07-23:** Added the Inbox-only rule for raw references and AI-generated material, linked the complete vault workflow, and updated research-chat prompts so AI output cannot be written directly into Sources, Concepts, or Drafts.
 - **2026-07-23:** Created the shared research and article roadmap. Recorded the five live drafts, eight flagship dossiers, fifteen field-note candidates, artifact and preprint funnels, the complete Obsidian-to-GitHub workflow, renderer contracts, cross-chat handoffs, and reusable prompts.

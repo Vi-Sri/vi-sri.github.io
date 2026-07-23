@@ -70,6 +70,8 @@ class ObsidianBlog
   def init_vault
     directories = [
       "00 Inbox/Web Clips",
+      "00 Inbox/References",
+      "00 Inbox/AI Intake",
       "10 Sources",
       "20 Concepts",
       @drafts_dir,
@@ -81,6 +83,9 @@ class ObsidianBlog
 
     write_unless_exists(@vault.join(@templates_dir, "Blog draft.md"), blog_template)
     write_unless_exists(@vault.join(@templates_dir, "Source note.md"), source_template)
+    write_unless_exists(@vault.join(@templates_dir, "Reference intake.md"), reference_intake_template)
+    write_unless_exists(@vault.join(@templates_dir, "AI intake.md"), ai_intake_template)
+    write_unless_exists(@vault.join(@templates_dir, "Concept note.md"), concept_template)
     write_unless_exists(@vault.join("Publishing Board.md"), publishing_board)
     write_unless_exists(@vault.join("VAULT GUIDE.md"), vault_guide)
     configure_obsidian
@@ -629,18 +634,25 @@ class ObsidianBlog
     <<~MARKDOWN
       ---
       title: "{{title}}"
+      kind: source
+      source_type:
       source:
+      doi:
       author:
       published:
-      clipped: "{{date}}"
+      verified: "{{date}}"
       tags: [source]
       ---
 
-      ## Key claims
+      ## Claim relevant to this project
 
       ## Evidence and method
 
-      ## Quotations to verify
+      ## Variables, assumptions, and sample
+
+      ## Verified quotations and locators
+
+      ## Limitations and counterevidence
 
       ## Connections
 
@@ -648,16 +660,144 @@ class ObsidianBlog
     MARKDOWN
   end
 
+  def reference_intake_template
+    <<~MARKDOWN
+      ---
+      title: "{{title}}"
+      intake_type: reference
+      review_status: unreviewed
+      source_type:
+      source:
+      doi:
+      author:
+      published:
+      captured: "{{date}}"
+      candidate_draft:
+      tags: [intake, reference]
+      ---
+
+      ## Why this may matter
+
+      ## Claims to verify
+
+      ## Primary source to locate
+
+      ## Triage decision
+
+      Keep this note in `00 Inbox/References` until its provenance, claims, and
+      usefulness have been checked. Create a clean source note in `10 Sources`
+      only after verification.
+    MARKDOWN
+  end
+
+  def ai_intake_template
+    <<~MARKDOWN
+      ---
+      title: "{{title}}"
+      intake_type: ai
+      review_status: unreviewed
+      model:
+      captured: "{{date}}"
+      candidate_draft:
+      tags: [intake, ai]
+      ---
+
+      ## Prompt or task
+
+      ## Raw output
+
+      ## Claims and citations requiring independent verification
+
+      ## Useful questions
+
+      ## Human decision
+
+      AI-generated text stays in `00 Inbox/AI Intake`. Do not move its prose
+      directly into `10 Sources`, `20 Concepts`, or `30 Drafts`. Verify claims
+      from primary sources, then write the synthesis in your own words.
+    MARKDOWN
+  end
+
+  def concept_template
+    <<~MARKDOWN
+      ---
+      title: "{{title}}"
+      kind: concept
+      aliases: []
+      tags: []
+      updated: "{{date}}"
+      ---
+
+      ## Working definition
+
+      ## Competing definitions
+
+      ## Mechanism or formal object
+
+      ## Evidence and examples
+
+      ## Counterexamples and limits
+
+      ## Open questions
+
+      ## Source notes
+
+      ## Candidate drafts
+    MARKDOWN
+  end
+
   def publishing_board
     <<~MARKDOWN
       # Publishing board
 
-      This view is generated from properties on notes in `#{@drafts_dir}`. Set `blog_publish: true` only when a note is allowed to leave the private vault.
+      This read-only board is generated from properties on notes in
+      `#{@drafts_dir}`. Change `status`, `next_step`, and `blog_publish` in the
+      draft itself. Do not drag or duplicate cards.
+
+      - `blog_publish: false` means private.
+      - `blog_publish: true` means the note may appear on the public board.
+      - The website changes only after `bin/blog sync`, review, merge, and deploy.
+
+      ## Todo
 
       ```dataview
-      TABLE status AS Stage, blog_publish AS "Export?", next_step AS "Next step", updated AS Updated
+      TABLE WITHOUT ID
+        file.link AS Draft,
+        content_type AS Type,
+        next_step AS "Next step",
+        choice(blog_publish, "Public roadmap", "Private") AS Visibility,
+        updated AS Updated
       FROM "#{@drafts_dir}"
-      SORT choice(status = "in-progress", 1, choice(status = "todo", 2, 3)) ASC, updated DESC
+      WHERE status = "todo"
+      SORT updated DESC, file.name ASC
+      ```
+
+      ## In progress
+
+      ```dataview
+      TABLE WITHOUT ID
+        file.link AS Draft,
+        content_type AS Type,
+        next_step AS "Next step",
+        choice(blog_publish, "Public roadmap", "Private") AS Visibility,
+        updated AS Updated
+      FROM "#{@drafts_dir}"
+      WHERE status = "in-progress"
+      SORT updated DESC, file.name ASC
+      ```
+
+      ## Published
+
+      ```dataview
+      TABLE WITHOUT ID
+        file.link AS Draft,
+        content_type AS Type,
+        next_step AS "Next step",
+        choice(blog_publish, "Public", "Private") AS Visibility,
+        updated AS Updated
+      FROM "#{@drafts_dir}"
+      WHERE status = "published"
+      SORT updated DESC, file.name ASC
       ```
     MARKDOWN
   end
@@ -666,12 +806,37 @@ class ObsidianBlog
     <<~MARKDOWN
       # Vault guide
 
-      - `00 Inbox/Web Clips`: untrusted captures from the browser. Nothing here is public.
-      - `10 Sources`: cleaned papers, articles, books, datasets, and citation notes.
-      - `20 Concepts`: evergreen private ideas and cross-domain observations.
-      - `#{@drafts_dir}`: blog candidates. Only notes with `blog_publish: true` are exported.
-      - `40 Published`: optional archival notes and post-publication follow-ups.
-      - `#{@attachments_dir}`: images and documents embedded from drafts.
+      The vault is a promotion pipeline. Material moves forward only after a
+      human decision. Folder location communicates evidence maturity.
+
+      The Inbox-only AI rule applies to research material, summaries, outlines,
+      citations, equations, code, and candidate article prose. Operational
+      files such as this guide, templates, and the Publishing Board stay in
+      their functional locations.
+
+      ## Folder responsibilities
+
+      - `00 Inbox/Web Clips`: raw browser captures and clipped pages.
+      - `00 Inbox/References`: DOI links, paper leads, bibliographies, PDFs to
+        inspect, and other unverified reference candidates.
+      - `00 Inbox/AI Intake`: every AI-generated summary, outline, suggestion,
+        citation lead, or candidate passage. AI output does not go directly
+        into source, concept, or draft notes.
+      - `10 Sources`: one clean, human-verified record per source. Record what
+        the source establishes, its method, limitations, exact citation, and
+        any quotation locator. This is not a clip archive.
+      - `20 Concepts`: private, human-authored synthesis across verified
+        sources. Record definitions, mechanisms, disagreements, limits, and
+        questions. Do not paste source or AI prose here.
+      - `#{@drafts_dir}`: canonical article prose and front matter. This is the
+        only folder the compiler considers for publication. Keep the canonical
+        source here even after `status: published`.
+      - `40 Published`: post-publication corrections, response notes, release
+        notes, and follow-up research. Do not move the canonical article source
+        here because the compiler expects it in `#{@drafts_dir}`.
+      - `#{@templates_dir}`: approved templates for each stage.
+      - `#{@attachments_dir}`: local images and supported documents. A file is
+        copied to the site only when an opted-in draft embeds it explicitly.
 
       ## Publishing boundary
 
@@ -679,16 +844,21 @@ class ObsidianBlog
 
       ## Daily loop
 
-      1. Capture with Web Clipper into `00 Inbox/Web Clips`.
-      2. Distill durable evidence into `10 Sources` and concepts into `20 Concepts`.
-      3. Create a draft with `bin/blog new "Title"` or the Blog draft template.
-      4. Write normal Obsidian wikilinks, including section and alias links.
-      5. Run `bin/blog normalize-links` so every destination uses its canonical filename while preserving reader-facing aliases.
-      6. Set `blog_publish: true` when the draft may appear on the public roadmap.
-      7. Run `bin/blog check`, then `bin/blog sync` from the blog repository.
-      8. Preview in Docker; commit and deploy only after review.
+      1. Capture every external or machine-generated input in `00 Inbox`.
+      2. Triage relevance, provenance, evidence type, and the claim to verify.
+      3. Locate and read the primary source when possible.
+      4. Create a clean verified note in `10 Sources`; keep raw intake in Inbox.
+      5. Write reusable synthesis in your own words in `20 Concepts`.
+      6. Create or update an article in `#{@drafts_dir}`.
+      7. Change `status` in the draft. `Publishing Board.md` updates
+         automatically from those properties.
+      8. Write normal Obsidian wikilinks, including exact section links.
+      9. Set `blog_publish: true` only when the full note may leave the vault.
+      10. Run normalization, validation, sync, preview, Git review, and deploy.
 
-      In Web Clipper, set the destination folder to `00 Inbox/Web Clips`. Keep the page URL, author, publication date, and clipped date as properties.
+      In Web Clipper, set the destination folder to `00 Inbox/Web Clips`.
+      Unverified references go to `00 Inbox/References`. AI-generated material
+      goes to `00 Inbox/AI Intake`. Keep provenance with every intake item.
     MARKDOWN
   end
 end

@@ -11,6 +11,7 @@ The source for [tummo.ai](https://tummo.ai): essays, field notes, simulations, a
 - A public Todo → In progress → Published writing board that keeps unfinished notes visible but out of search indexes
 - A [four-month revival plan](docs/FOUR_MONTH_REVIVAL_PLAN.md)
 - A [research and article roadmap](docs/BLOG_RESEARCH_ROADMAP.md) covering every planned essay, artifact, and cross-chat workflow
+- An [Obsidian vault and writing workflow](docs/OBSIDIAN_VAULT_WORKFLOW.md) defining Inbox, Sources, Concepts, Drafts, the local board, and AI intake rules
 - An [editorial and research playbook](docs/EDITORIAL_PLAYBOOK.md)
 - A [shared project memory and end-to-end operating guide](docs/PROJECT_MEMORY.md) for Obsidian, Codex, compilation, and deployment
 

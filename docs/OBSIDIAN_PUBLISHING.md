@@ -106,3 +106,11 @@ The filesystem compiler remains independent of the app, so `check` and `sync` ar
 ## Web Clipper
 
 Configure the Chrome Web Clipper destination as `00 Inbox/Web Clips`. Captures are research inputs, not draft content. Distill reliable claims and citations into `10 Sources`, then write the argument in `30 Drafts`. This keeps clipped prose, uncertain claims, and private annotations outside the public export boundary.
+
+All raw intake follows the same boundary:
+
+- Web captures go to `00 Inbox/Web Clips`.
+- Unverified paper, DOI, bibliography, and reference leads go to `00 Inbox/References`.
+- Every AI-generated summary, outline, citation lead, or candidate passage goes to `00 Inbox/AI Intake`.
+
+Do not move raw or AI prose directly into Sources, Concepts, or Drafts. Verify the actual source, create a clean evidence record in `10 Sources`, synthesize in your own words in `20 Concepts`, and write the human-owned argument in `30 Drafts`. See [the complete vault workflow](OBSIDIAN_VAULT_WORKFLOW.md).
