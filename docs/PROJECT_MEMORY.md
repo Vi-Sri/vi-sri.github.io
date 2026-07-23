@@ -1,11 +1,11 @@
 # tummo.ai shared project memory
 
 **Purpose:** Durable context for Codex chats working on research, writing, compilation, deployment, SEO, or maintenance for this project.
-**Last verified:** July 22, 2026, America/New_York
+**Last verified:** July 23, 2026, America/New_York
 **Public site:** <https://tummo.ai>
 **Repository:** <https://github.com/Vi-Sri/vi-sri.github.io>
 
-This document records the system as it exists, the operating rules that should remain stable, and the currently pending work. It is not a substitute for inspecting the live files. Every new Codex chat should read this file first, then verify the specific state it plans to change.
+This document records the system as it exists, the operating rules that should remain stable, and the currently pending work. It is not a substitute for inspecting the live files. Every new Codex chat should read this file first, then verify the specific state it plans to change. Topic, article, simulation, and paper chats must also read [the research and article roadmap](BLOG_RESEARCH_ROADMAP.md).
 
 ## 1. Project mission
 
@@ -26,7 +26,7 @@ The editorial ambition is Gwern-like connectedness: arguments should be addressa
 
 The site supports light and dark themes. The dark theme uses a warm charcoal-forest background rather than black, with muted coral and sage accents. First visits follow `prefers-color-scheme`; an explicit navigation toggle is stored locally under `tummo-color-theme`. Theme initialization happens in the document head to avoid a flash of the wrong palette.
 
-The four-month objective is to build a recognizable and trusted body of work, not merely increase traffic. The current plan targets eight flagship essays, twelve to sixteen field notes, four public simulations/notebooks, and one defensible preprint with a reproducibility package. See [the four-month revival plan](FOUR_MONTH_REVIVAL_PLAN.md) and [the editorial playbook](EDITORIAL_PLAYBOOK.md).
+The four-month objective is to build a recognizable and trusted body of work, not merely increase traffic. The current plan targets eight flagship essays, twelve to sixteen field notes, four public simulations/notebooks, and one defensible preprint with a reproducibility package. See [the four-month revival plan](FOUR_MONTH_REVIVAL_PLAN.md), [the research and article roadmap](BLOG_RESEARCH_ROADMAP.md), and [the editorial playbook](EDITORIAL_PLAYBOOK.md).
 
 Srinivas works at NVIDIA as a Research Engineer. All public work must respect employer confidentiality, disclosure, authorship, code/data ownership, and publication-review obligations. The site states that its views are personal and do not represent NVIDIA or another employer.
 
@@ -69,6 +69,7 @@ Important paths:
 |---|---|
 | `AGENTS.md` | Tells future Codex chats to load this memory |
 | `docs/PROJECT_MEMORY.md` | Shared system context and current state |
+| `docs/BLOG_RESEARCH_ROADMAP.md` | Article portfolio, research plans, artifact requirements, and cross-chat handoffs |
 | `.obsidian-blog.yml` | Private local bridge from repo to vault; ignored by Git |
 | `.obsidian-blog.example.yml` | Public configuration example |
 | `bin/blog` | Stable command-line entry point |
@@ -498,7 +499,7 @@ docker compose exec -T -e JEKYLL_ENV=production site \
 
 ### 10.5 GitHub publication
 
-The preferred flow is an isolated `agent/<description>` branch, an intentional commit, a draft pull request, passing checks, review, merge to `main`, and live verification. Never use `git add -A` when unrelated files exist; explicitly stage the generated post, attachments, and any intentional implementation/docs changes.
+The preferred flow is an isolated `codex/<description>` branch, an intentional commit, a draft pull request, passing checks, review, merge to `main`, and live verification. Never use `git add -A` when unrelated files exist; explicitly stage the generated post, attachments, and any intentional implementation/docs changes.
 
 GitHub Actions does two jobs:
 
@@ -572,7 +573,7 @@ The `google_site_verification` value is currently blank. See [search and measure
 
 The writing and Explore pages include “What connection should I investigate next?” with links to a structured GitHub topic-suggestion issue and email. Suggestions are research leads, not editorial obligations or verified evidence.
 
-## 13. Live infrastructure state as of July 22, 2026
+## 13. Live infrastructure state as of July 23, 2026
 
 ### Domain and HTTPS
 
@@ -596,9 +597,9 @@ Pending hardening: GitHub account-level verified-domain TXT has not been configu
 ### Deployment and authentication
 
 - Repository default/deployment branch: `main`.
-- Latest verified repository milestone before this memory file: merge commit `7c6a360`, PR #6, domain cutover.
+- Latest verified repository milestone before this documentation change: merge commit `eca74bb`, PR #7, accessible dark theme and punctuation enforcement.
 - GitHub Pages is deployed by Actions, not Jekyll's legacy branch mode.
-- The local `gh` session was reauthenticated as `Vi-Sri` on July 22, 2026. Authentication may expire again; verify with `gh auth status` before GitHub writes.
+- GitHub CLI authentication is ephemeral local state, not a durable project fact. Always run `gh auth status` immediately before GitHub writes and reauthenticate with `gh auth login -h github.com` when needed.
 - Existing GitHub Actions completed successfully but emitted warnings that some JavaScript actions were being forced from Node 20 to Node 24. Update action majors when supported rather than ignoring future failures.
 
 ### Analytics/search
@@ -649,7 +650,7 @@ Scope:
 
 Defaults:
 
-- read this memory before work;
+- read this memory and `docs/BLOG_RESEARCH_ROADMAP.md` before work;
 - keep a new draft `blog_publish: false`;
 - preserve an existing note's `blog_publish`, `status`, `slug`, and `date` unless asked to change them;
 - do not run `bin/blog sync` or perform Git/GitHub/deployment actions;
@@ -683,8 +684,9 @@ Then read the current vault note from disk. Do not overwrite content based only 
 ### Research-only topic chat
 
 ```text
-Read AGENTS.md and docs/PROJECT_MEMORY.md in full before acting. Work on the
-topic: <TOPIC OR QUESTION>. Use the Obsidian vault as the source of truth.
+Read AGENTS.md, docs/PROJECT_MEMORY.md, and
+docs/BLOG_RESEARCH_ROADMAP.md in full before acting. Work on the topic:
+<TOPIC OR QUESTION>. Use the Obsidian vault as the source of truth.
 Help me gather primary/authoritative sources, create or improve source notes in
 10 Sources, synthesize concepts in 20 Concepts, and develop the relevant note
 in 30 Drafts. Clearly separate evidence, inference, speculation, and open
@@ -697,7 +699,8 @@ end, report changed vault files, unresolved claims, and likely public wikilinks.
 ### Editorial review without publication
 
 ```text
-Read AGENTS.md and docs/PROJECT_MEMORY.md. Review the current Obsidian source
+Read AGENTS.md, docs/PROJECT_MEMORY.md, and
+docs/BLOG_RESEARCH_ROADMAP.md. Review the current Obsidian source
 30 Drafts/<FILE>.md for argument, evidence, primary sources, objections,
 equations, figures, reproducibility, accessibility, SEO framing, and meaningful
 wikilinks. Inspect sources rather than guessing. Do not change blog_publish,
@@ -708,27 +711,30 @@ only the vault edits I approve.
 ### Compile and preview, but do not publish
 
 ```text
-Read AGENTS.md and docs/PROJECT_MEMORY.md. Prepare the already-authorized
-opted-in draft 30 Drafts/<FILE>.md for a local preview. Inspect current Git and
-vault state, normalize links, validate, sync the compiler output, and rebuild
-the Docker preview. Do not commit, push, open a PR, merge, or deploy. Report the
-exact generated files, validation results, preview URL, and diff, including any
+Read AGENTS.md, docs/PROJECT_MEMORY.md, and
+docs/BLOG_RESEARCH_ROADMAP.md. Prepare the already-authorized opted-in draft
+30 Drafts/<FILE>.md for a local preview. Inspect current Git and vault state,
+normalize links, validate, sync the compiler output, and rebuild the Docker
+preview. Do not commit, push, open a PR, merge, or deploy. Report the exact
+generated files, validation results, preview URL, and diff, including any
 privacy or publication blockers.
 ```
 
 ### Full publication through Codex
 
 ```text
-Read AGENTS.md and docs/PROJECT_MEMORY.md. Prepare 30 Drafts/<FILE>.md for
-publication. Review metadata, citations, exact-section wikilinks, math, figures,
-code/data, accessibility, confidentiality, and the editorial publication gate.
-Do not invent sources or alter unrelated private notes. Report any blocker. If
-there is no blocker, set status: published and blog_publish: true, normalize,
-check, sync, rebuild and inspect the Docker preview, run a production build,
-show the intended diff, commit only those files on an agent branch, push, open
-a draft PR, wait for checks, make it ready and merge after review, wait for the
-Pages deployment, verify the live tummo.ai page, and update the current-state
-section of docs/PROJECT_MEMORY.md.
+Read AGENTS.md, docs/PROJECT_MEMORY.md, and
+docs/BLOG_RESEARCH_ROADMAP.md. Prepare 30 Drafts/<FILE>.md for publication.
+Review metadata, citations, exact-section wikilinks, math, figures, code/data,
+accessibility, confidentiality, and the editorial publication gate. Do not
+invent sources or alter unrelated private notes. Report any blocker. If there
+is no blocker, set status: published and blog_publish: true, normalize, check,
+sync, rebuild and inspect the Docker preview, run a production build, show the
+intended diff, commit only those files on a codex branch, push, open a draft PR,
+wait for checks, make it ready and merge after review, wait for the Pages
+deployment, verify the live tummo.ai page, and update the current-state section
+of docs/PROJECT_MEMORY.md and the portfolio state in
+docs/BLOG_RESEARCH_ROADMAP.md.
 ```
 
 ## 16. Troubleshooting and invariants
@@ -778,6 +784,7 @@ Update this file in the same reviewed change whenever any of these occur:
 - domain, DNS, certificate, registrar, GitHub Pages, or workflow state changes;
 - Search Console/GA setup is completed;
 - a draft becomes published, a major article/preprint ships, or the four-month baseline changes;
+- a flagship, field-note, artifact, or paper plan changes materially in `BLOG_RESEARCH_ROADMAP.md`;
 - a new recurring operational risk or recovery procedure is discovered.
 
 For each update:
@@ -790,6 +797,7 @@ For each update:
 
 ### Change log
 
+- **2026-07-23:** Added `BLOG_RESEARCH_ROADMAP.md` as the content-facing companion to this memory. It records the live portfolio, all eight flagship plans, field notes, artifacts, preprint funnel, complete research and publication process, renderer contracts, and cross-chat handoffs. Updated future-chat loading rules and current repository state.
 - **2026-07-22:** Added an accessible light/dark theme toggle, system-preference fallback, locally persisted choice, and a warm low-contrast dark palette that preserves the forest/rust identity.
 - **2026-07-22:** Removed em dashes from site copy, article sources, templates, and project documentation. Added compiler and generated-site checks that reject future em dashes.
 - **2026-07-21:** Created shared project memory after the site redesign, wikilink/backreference system, public writing board and suggestion flow, Obsidian compiler, documentation, GA4 consent integration, and `tummo.ai` domain/HTTPS cutover. Recorded the current five-draft state and unsynced Maze metadata.

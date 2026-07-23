@@ -68,7 +68,7 @@ Review its metadata, links, exact-section references, math, figures, citations,
 and accessibility. Do not invent sources or alter private notes unnecessarily.
 Report anything blocking publication. If there is no blocker, set status to
 published and blog_publish to true; run the normalization/check/sync pipeline;
-rebuild the Docker preview; show me the resulting diff; commit it on an agent
+rebuild the Docker preview; show me the resulting diff; commit it on a codex
 branch; push it; open a pull request; wait for GitHub checks; merge it; and
 verify GitHub Pages.
 ```

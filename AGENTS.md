@@ -2,6 +2,8 @@
 
 Read `docs/PROJECT_MEMORY.md` in full before changing this repository or the connected Obsidian vault. It is the shared operational context for research, editing, compilation, deployment, domain, analytics, and SEO work.
 
+For any task concerning a topic, source, concept, article, simulation, or paper, also read `docs/BLOG_RESEARCH_ROADMAP.md` in full. Then inspect the current Obsidian note before editing. The roadmap is the shared portfolio and cross-chat handoff context; the current vault note remains authoritative for article prose and front matter.
+
 The user's current request overrides the defaults below. Otherwise:
 
 - Treat the Obsidian vault as the source of truth for article prose and front matter. Do not directly edit a generated `_posts` file carrying `obsidian_source`.
@@ -13,3 +15,4 @@ The user's current request overrides the defaults below. Otherwise:
 - Do not use the Unicode em dash character in website copy, article sources, metadata, or project documentation. Rewrite the sentence or use a colon, comma, semicolon, or parentheses.
 - Do not store API tokens, cookies, GoDaddy credentials, Google credentials, or other secrets in the repository or project memory.
 - After a material change to infrastructure, domain, workflow, compiler behavior, or publication state, update the dated state and change log in `docs/PROJECT_MEMORY.md` in the same change.
+- After a material change to the flagship, field-note, artifact, preprint, or article-connection plan, update `docs/BLOG_RESEARCH_ROADMAP.md` in the same change.

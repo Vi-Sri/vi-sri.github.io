@@ -10,6 +10,7 @@ The source for [tummo.ai](https://tummo.ai): essays, field notes, simulations, a
 - Structured article metadata, an XML sitemap, and an RSS feed
 - A public Todo → In progress → Published writing board that keeps unfinished notes visible but out of search indexes
 - A [four-month revival plan](docs/FOUR_MONTH_REVIVAL_PLAN.md)
+- A [research and article roadmap](docs/BLOG_RESEARCH_ROADMAP.md) covering every planned essay, artifact, and cross-chat workflow
 - An [editorial and research playbook](docs/EDITORIAL_PLAYBOOK.md)
 - A [shared project memory and end-to-end operating guide](docs/PROJECT_MEMORY.md) for Obsidian, Codex, compilation, and deployment
 
@@ -41,10 +42,10 @@ Visit `http://localhost:4000`. While the container is running, Jekyll watches th
 
 ## Publish a piece
 
-1. Copy `_drafts/_article-template.md` and replace the placeholder front matter.
-2. Start with `status: todo` and `sitemap: false`; move it to `status: in-progress` when research or experiments begin.
-3. Keep `next_step` current and satisfy the evidence, visual, reproducibility, and distribution checks in `docs/EDITORIAL_PLAYBOOK.md`.
-4. Move the file to `_posts/YYYY-MM-DD-slug.md`, set `status: published`, and remove `sitemap: false`.
-5. Open a pull request and let the site build check run before merging.
+1. Create or edit the article source in the Obsidian vault under `30 Drafts`.
+2. Keep new work private with `blog_publish: false` until public export is explicitly authorized.
+3. Follow [Obsidian publishing](docs/OBSIDIAN_PUBLISHING.md) to normalize, validate, and sync the draft.
+4. Preview in Docker and run the production-equivalent build.
+5. Publish the reviewed generated changes through a pull request and merge to `main`.
 
 The views and writing in this repository are personal and do not represent NVIDIA or any other employer.
